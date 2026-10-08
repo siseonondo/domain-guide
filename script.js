@@ -144,27 +144,8 @@
     return a
   })
 
-  // 화면 크기에 맞춰 내용을 키우거나 줄여서 한 화면을 알맞게 채웁니다.
-  function fit(page) {
-    var inner = page.querySelector('.page-inner')
-    if (!inner) return
-    var W = stage.clientWidth
-    var H = stage.clientHeight - (stage.clientWidth > 700 ? 52 : 28)
-    var wide = W > 760
-    var maxZoom = wide ? Math.min(MAX_ZOOM, W / MIN_LOGICAL_W) : 1
-    var minZ = wide ? MIN_ZOOM : MIN_ZOOM_PHONE
-    var chosen = minZ
-    for (var z = maxZoom; z >= minZ - 0.001; z -= 0.04) {
-      inner.style.zoom = String(z)
-      inner.style.maxWidth = Math.min(BASE_W, W / z) + 'px'
-      if (inner.getBoundingClientRect().height <= H - 2) {
-        chosen = z
-        break
-      }
-    }
-    inner.style.zoom = String(chosen)
-    inner.style.maxWidth = Math.min(BASE_W, W / chosen) + 'px'
-  }
+  // 한 줄로 이어지는 스크롤 방식: 페이지를 늘리거나 줄이지 않습니다.
+  function fit() {}
 
   // 현재 페이지 썸네일을 왼쪽 메뉴의 세로 중앙에 맞춘다
   function centerSide(a, instant) {
@@ -175,19 +156,10 @@
     else box.scrollTop = Math.max(0, target)
   }
 
-  function show(i, updateHash) {
-    i = Math.max(0, Math.min(pages.length - 1, i))
-    pages.forEach(function (p, k) {
-      p.classList.toggle('is-active', k === i)
-    })
+  var lockUntil = 0
+  function setActive(i) {
     current = i
-    var page = pages[i]
-    page.scrollTop = 0
-    fit(page)
     countEl.textContent = i + 1 + ' / ' + pages.length
-    barEl.style.width = ((i + 1) / pages.length) * 100 + '%'
-    prevBtn.disabled = i === 0
-    nextBtn.disabled = i === pages.length - 1
     tocLinks.forEach(function (a, k) {
       if (k === i) a.setAttribute('aria-current', 'true')
       else a.removeAttribute('aria-current')
@@ -200,9 +172,29 @@
         a.removeAttribute('aria-current')
       }
     })
+  }
+
+  // 해당 페이지 위치로 스크롤해서 이동
+  function show(i, updateHash, instant) {
+    i = Math.max(0, Math.min(pages.length - 1, i))
+    var page = pages[i]
+    lockUntil = Date.now() + 700
+    setActive(i)
+    stage.scrollTo({ top: page.offsetTop, behavior: instant ? 'auto' : 'smooth' })
     if (updateHash && history.replaceState) {
       history.replaceState(null, '', i === 0 ? location.pathname + location.search : '#' + page.id)
     }
+  }
+
+  function detect() {
+    if (Date.now() < lockUntil) return
+    var y = stage.scrollTop + stage.clientHeight * 0.35
+    var idx = 0
+    for (var k = 0; k < pages.length; k++) {
+      if (pages[k].offsetTop <= y) idx = k
+    }
+    if (stage.scrollTop + stage.clientHeight >= stage.scrollHeight - 4) idx = pages.length - 1
+    if (idx !== current) setActive(idx)
   }
 
   function fromHash() {
@@ -214,15 +206,7 @@
     return 0
   }
 
-  function next() {
-    show(current + 1, true)
-  }
-  function prev() {
-    show(current - 1, true)
-  }
 
-  prevBtn.addEventListener('click', prev)
-  nextBtn.addEventListener('click', next)
 
   function openToc() {
     toc.hidden = false
@@ -240,51 +224,11 @@
 
   document.addEventListener('keydown', function (e) {
     if (e.altKey || e.ctrlKey || e.metaKey) return
-    if (!toc.hidden) {
-      if (e.key === 'Escape') closeToc()
-      return
-    }
-    if (e.target && e.target.id === 'sideResizer') return
-    var tag = (e.target && e.target.tagName) || ''
-    if (tag === 'INPUT' || tag === 'TEXTAREA') return
-    if (e.key === 'ArrowRight' || e.key === 'PageDown') {
-      e.preventDefault()
-      next()
-    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-      e.preventDefault()
-      prev()
-    } else if (e.key === 'Home') {
-      e.preventDefault()
-      show(0, true)
-    } else if (e.key === 'End') {
-      e.preventDefault()
-      show(pages.length - 1, true)
-    }
+    if (!toc.hidden && e.key === 'Escape') closeToc()
   })
 
-  // 터치 스와이프
-  var sx = 0
-  var sy = 0
-  stage.addEventListener(
-    'touchstart',
-    function (e) {
-      sx = e.changedTouches[0].clientX
-      sy = e.changedTouches[0].clientY
-    },
-    { passive: true }
-  )
-  stage.addEventListener(
-    'touchend',
-    function (e) {
-      var dx = e.changedTouches[0].clientX - sx
-      var dy = e.changedTouches[0].clientY - sy
-      if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) {
-        if (dx < 0) next()
-        else prev()
-      }
-    },
-    { passive: true }
-  )
+  // 스크롤 위치에 맞춰 현재 위치(번호·왼쪽 메뉴·목차)를 갱신
+  stage.addEventListener('scroll', detect, { passive: true })
 
   window.addEventListener('hashchange', function () {
     show(fromHash(), false)
@@ -380,10 +324,16 @@
     })
   }
 
-  show(fromHash(), false)
+  stage.setAttribute('tabindex', '-1')
+  show(fromHash(), false, true)
   layoutThumbs()
   centerSide(sideLinks[current], true)
   window.addEventListener('load', function () {
+    // 글꼴이 다 불러와지면 높이가 달라지므로, 주소에 위치가 있으면 한 번 더 맞춥니다.
+    if (location.hash) show(fromHash(), false, true)
     centerSide(sideLinks[current], true)
+    try {
+      stage.focus({ preventScroll: true })
+    } catch (e) {}
   })
 })()
