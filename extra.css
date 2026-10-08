@@ -387,3 +387,19 @@ code {
   margin-bottom: 2px;
   font-size: 13px;
 }
+/* 긴 페이지는 오른쪽 화면 안에서 스크롤 */
+.js .page {
+  scrollbar-width: thin;
+  scrollbar-color: #a99bbd transparent;
+}
+
+.js .page::-webkit-scrollbar {
+  width: 10px;
+}
+
+.js .page::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #a99bbd;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
