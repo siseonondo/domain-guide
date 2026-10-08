@@ -1,0 +1,389 @@
+
+/* ================= 도메인 가이드 추가 스타일 ================= */
+:root {
+  --warn-bg: #fbeae4;
+  --warn-ink: #7a2e17;
+}
+
+.ph {
+  padding: 1px 7px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.callout-warn {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+}
+
+.callout + .callout {
+  margin-top: 10px;
+}
+
+/* 사람 / Claude 역할 막대 */
+.role {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.role > div {
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.role strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.role-p {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.role-c {
+  background: var(--blue-bg);
+  color: var(--blue-ink);
+}
+
+/* 표 */
+.info-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 15px;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.info-table th,
+.info-table td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-light);
+  line-height: 1.5;
+}
+
+.info-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.info-table th {
+  background: var(--bg-soft);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.info-table td:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.info-table td code {
+  color: var(--accent-strong);
+}
+
+.info-table .nw {
+  white-space: nowrap;
+}
+
+/* 단계 수 변형 */
+.steps-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.steps-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.steps .step h3 {
+  font-size: 17px;
+}
+
+/* 흐름 4/5칸 */
+.flow-4 {
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+}
+
+.flow-5 {
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+}
+
+.flow-4 li:not(.flow-arrow),
+.flow-5 li:not(.flow-arrow) {
+  padding: 18px 14px;
+}
+
+.flow-4 li strong,
+.flow-5 li strong {
+  font-size: 16.5px;
+}
+
+.flow-4 li p,
+.flow-5 li p {
+  font-size: 14px;
+}
+
+/* 8칸 타임라인 */
+.timeline-8 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.timeline-8 li {
+  padding: 16px 14px;
+}
+
+.timeline-8 li strong {
+  font-size: 16px;
+}
+
+/* 체크리스트 */
+.check-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  position: relative;
+  padding: 9px 14px 9px 42px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: var(--card-bg);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.check-list li::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+}
+
+.check-list strong {
+  color: var(--ink);
+}
+
+.check-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* 용어집 */
+.term-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.term-grid li {
+  padding: 12px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  background: var(--card-bg);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.term-grid strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--accent-strong);
+  font-size: 15px;
+}
+
+/* 말풍선(Claude에게 하는 요청) */
+.say {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.say li {
+  align-self: flex-start;
+  max-width: 100%;
+  padding: 10px 16px;
+  border-radius: 16px 16px 16px 4px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.say li.say-ai {
+  align-self: flex-end;
+  border-radius: 16px 16px 4px 16px;
+  background: var(--blue-bg);
+  color: var(--blue-ink);
+}
+
+.say li small {
+  display: block;
+  font-size: 11.5px;
+  opacity: 0.75;
+}
+
+/* 한 줄 큰 경로 표시 */
+.path-line {
+  margin: 0 0 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--bg-app);
+  border: 1px dashed var(--border-input);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.mini-terminal {
+  gap: 2px;
+}
+
+.mini-terminal .gray {
+  color: #a09889;
+}
+
+.split .card h3 {
+  margin-top: 0;
+}
+
+.card ul.plain-list {
+  margin-top: 6px;
+}
+
+.card .plain-list span {
+  font-size: 14.5px;
+}
+
+.card-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.badge-red {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+}
+
+.hero-title.long {
+  font-size: clamp(32px, 3.2vw, 44px);
+}
+
+.addr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--bg-app);
+  border: 1px solid var(--border-input);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .flow-4,
+  .flow-5 {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-4 .flow-arrow,
+  .flow-5 .flow-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .role,
+  .steps-4,
+  .steps-2,
+  .check-2,
+  .card-grid-2,
+  .term-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-8 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-table {
+    font-size: 13.5px;
+  }
+
+  .info-table th,
+  .info-table td {
+    padding: 8px 10px;
+  }
+
+  .info-table td:first-child {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 760px) {
+  .info-table td,
+  .info-table th,
+  .info-table code,
+  .term-grid code,
+  .check-list code {
+    overflow-wrap: anywhere;
+    word-break: break-all;
+  }
+
+  .info-table .nw {
+    white-space: normal;
+  }
+}
+/* 본문 속 굵은 글씨는 줄바꿈하지 않고 이어서 */
+.callout p strong,
+.callout p code {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+}
+
+.role strong {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+}
+
+.role > div > strong:first-child {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 13px;
+}

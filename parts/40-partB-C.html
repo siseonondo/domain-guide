@@ -1,0 +1,492 @@
+      <!-- 31 -->
+      <section id="sub-intro" class="page" data-title="PART B · 서브도메인이란">
+        <div class="page-inner">
+          <p class="eyebrow">PART B · SUBDOMAIN</p>
+          <h2>도메인 하나로 사이트를 여러 개</h2>
+          <div class="card-grid card-grid-3">
+            <article class="card">
+              <p class="eyebrow eyebrow-blue">메인</p>
+              <h3><code>내도메인.kr</code></h3>
+              <p>메인 사이트</p>
+            </article>
+            <article class="card">
+              <p class="eyebrow eyebrow-blue">서브사이트 1</p>
+              <h3><code>docs.내도메인.kr</code></h3>
+              <p>문서·교안 사이트</p>
+            </article>
+            <article class="card">
+              <p class="eyebrow eyebrow-blue">서브사이트 2</p>
+              <h3><code>lesson.내도메인.kr</code></h3>
+              <p>강의 자료 사이트 (PPT → 웹)</p>
+            </article>
+          </div>
+          <div class="callout">
+            <strong>📖 서브도메인이란?</strong>
+            <p>도메인 앞에 붙이는 <strong>"방 이름"</strong>입니다. <code>lesson.내도메인.kr</code>의 <code>lesson</code> 부분이에요. <strong>추가 비용 없이</strong> 원하는 만큼 만들 수 있습니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 32 -->
+      <section id="sub-formula" class="page" data-title="새 서브도메인 만드는 공식">
+        <div class="page-inner">
+          <p class="eyebrow">PART B · THE FORMULA</p>
+          <h2>새 서브도메인 만드는 공식 — 이 순서만 기억!</h2>
+          <ol class="timeline timeline-8" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+            <li><span class="step-no">① 만들기</span><strong>사이트 파일</strong><span>사이트 파일 만들기</span></li>
+            <li><span class="step-no">② 올리기</span><strong>GitHub</strong><span>새(빈) 저장소 만들고 올리기</span></li>
+            <li><span class="step-no">③ 공개</span><strong>Vercel Deploy</strong><span>저장소를 가져와 Deploy → 임시 주소 확인</span></li>
+            <li class="is-focus"><span class="step-no">④ 짝꿍</span><strong>Vercel에 등록</strong><span>"<code>lesson.내도메인.kr</code> 쓸 거야"</span></li>
+            <li class="is-focus"><span class="step-no">⑤ 짝꿍</span><strong>닷홈 DNS 한 줄</strong><span>"<code>lesson</code>은 Vercel로 가세요"</span></li>
+            <li><span class="step-no">⑥ 완성</span><strong>몇 분 기다리기</strong><span>끝!</span></li>
+          </ol>
+          <div class="callout callout-soft">
+            <strong>🔑 ④와 ⑤는 짝꿍입니다</strong>
+            <p>Vercel에 말해주고(④), 닷홈에도 적어줘야(⑤) 연결됩니다.</p>
+          </div>
+          <div class="callout">
+            <strong>🔑 로그인 기능이 있다면</strong>
+            <p>STEP 6의 ①②에도 새 주소를 등록하세요. 정적 교안 사이트처럼 로그인이 없으면 필요 없습니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 33 -->
+      <section id="sub-docs" class="page" data-title="B-1 · 문서·교안 사이트">
+        <div class="page-inner">
+          <p class="eyebrow">PART B-1 · docs.내도메인.kr</p>
+          <h2>첫 서브사이트: 문서·교안 사이트</h2>
+          <div class="split">
+            <div>
+              <p class="eyebrow">이렇게 요청해요</p>
+              <ul class="say">
+                <li>내 문서 폴더의 md 파일들을 웹 HTML 교안으로 만들어서 배포하려고 해. 좌측에 전체 목록 메뉴가 있고, 우측에는 md를 HTML로 렌더링해서 보여줘.</li>
+                <li class="say-ai">내 url 만들어줄게 <code>docs.내도메인.kr</code> 이곳에 배포해줘</li>
+              </ul>
+              <p class="card-note">하는 일: 폴더의 문서(md 파일) 여러 개를 <strong>왼쪽 메뉴 + 오른쪽 본문</strong> 웹 교안으로 변환 → Vercel에 새 프로젝트로 정적 사이트 배포 → 닷홈 DNS에 <code>docs</code> 줄 추가</p>
+            </div>
+            <article class="card">
+              <p class="badge badge-red">겪을 수 있는 문제</p>
+              <h3>배포가 깨져요</h3>
+              <p>로컬 미리보기용 파일(<code>server.js</code>)을 Vercel이 "서버 프로그램"으로 착각할 수 있어요.</p>
+              <p>→ <strong>해결:</strong> <code>.vercelignore</code>와 <code>vercel.json</code>으로 "그냥 정적 사이트로 처리하라"고 알려줍니다.</p>
+              <p class="card-note">💡 일반 규칙: 정적 사이트(HTML·CSS·JS만)에 서버 실행용 파일이 섞이면 Vercel이 헷갈려요. 미리보기용 파일은 배포에서 제외하세요.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 34 -->
+      <section id="sub-lesson-1" class="page" data-title="B-2 · ① PPT를 웹으로">
+        <div class="page-inner">
+          <p class="eyebrow">PART B-2 · lesson.내도메인.kr · ①</p>
+          <h2>두 번째 서브사이트: PPT를 웹 강의 자료로</h2>
+          <div class="split">
+            <div>
+              <p class="eyebrow">Claude에게 하는 요청 (예시)</p>
+              <ul class="say">
+                <li>바탕화면의 <code>강의자료.pptx</code>를 PPT로 담는 게 아니라 <strong>웹 환경에 어울리게</strong> 웹으로 만들어줘.</li>
+                <li>한 페이지가 한 화면에 나오면 좋겠어.</li>
+                <li>화면 왼쪽에 PPT처럼 페이지 목록이 보이면 좋겠어.</li>
+                <li>왼쪽 창 폭을 내가 조절할 수 있게 해줘.</li>
+              </ul>
+            </div>
+            <table class="info-table">
+              <thead><tr><th>만들어지는 파일</th><th>역할</th></tr></thead>
+              <tbody>
+                <tr><td><code>index.html</code></td><td>사이트의 내용 (글, 구조)</td></tr>
+                <tr><td><code>styles.css</code></td><td>색·글자 크기·배치 (모양)</td></tr>
+                <tr><td><code>script.js</code></td><td>버튼·메뉴·페이지 넘기기 (동작)</td></tr>
+                <tr><td><code>favicon.png</code></td><td>브라우저 탭의 작은 아이콘</td></tr>
+                <tr><td><code>og-image.png</code></td><td>링크 공유 때의 대표 이미지</td></tr>
+                <tr><td><code>robots.txt</code>, <code>sitemap.xml</code></td><td>검색 로봇용 안내</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            <strong>💡 PPT에서 만들 때의 팁</strong>
+            <p>빈 슬라이드, 겹친 글자, 부정확한 표현을 먼저 점검해서 고친 뒤 웹으로 옮기세요. 원본 PPT는 건드리지 않고 <code>_수정본.pptx</code>를 따로 저장하는 것이 안전합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 35 -->
+      <section id="sub-lesson-preview" class="page" data-title="B-2 · 정적 사이트 미리 보기">
+        <div class="page-inner">
+          <p class="eyebrow">PART B-2 · lesson.내도메인.kr · ①</p>
+          <h2>서버 프로그램 없이 미리 보기</h2>
+          <div class="split practice">
+            <div class="notebook notebook-small">
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">터미널 · 정적 사이트 미리 보기</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-pyserver">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-pyserver"><span class="fn">python</span> -m http.server 5180</code></pre>
+              </div>
+              <div class="output"><span class="out-label">그다음 브라우저에</span>http://localhost:5180</div>
+            </div>
+            <div>
+              <p class="eyebrow">알아두세요</p>
+              <ul class="plain-list">
+                <li><strong>정적 사이트일 때 쓰는 방법</strong><span>HTML·CSS·JS 파일만으로 된 사이트라면 서버 프로그램이 필요 없어요. 끄려면 <kbd>Ctrl</kbd> + <kbd>C</kbd>.</span></li>
+                <li><strong>Python은 선택 설치였죠?</strong><span>STEP 0에서 "교안 같은 정적 사이트 미리 보기용"으로 설치하는 프로그램이에요.</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="role">
+            <div class="role-p"><strong>🧑 사람</strong>원본 PPT 준비 · 요구사항 말하기 · "글씨가 커요", "폭 조절하고 싶어요" 같은 의견</div>
+            <div class="role-c"><strong>🤖 Claude</strong>PPT 내용을 웹 페이지로 제작 · PPT 오류 분석 후 수정본 별도 저장 · 노트북·큰 모니터·휴대폰 크기 확인</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 36 -->
+      <section id="sub-lesson-2" class="page" data-title="B-2 · ② GitHub ③ Vercel">
+        <div class="page-inner">
+          <p class="eyebrow">PART B-2 · lesson.내도메인.kr · ② ③</p>
+          <h2>새 저장소 만들고 올리기 → Vercel Deploy</h2>
+          <div class="split practice">
+            <div class="notebook notebook-small">
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">② 폴더에서 터미널로</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-lesson">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-lesson"><span class="fn">git</span> init -b main
+<span class="fn">git</span> add -A
+<span class="fn">git</span> commit -m <span class="str">"첫 번째 버전"</span>
+<span class="fn">git</span> remote add origin https://github.com/내아이디/lesson-내사이트.git
+<span class="fn">git</span> push -u origin main</code></pre>
+              </div>
+            </div>
+            <div>
+              <p class="eyebrow">② GitHub</p>
+              <ul class="plain-list">
+                <li><strong>github.com/new</strong><span>이름 <code>lesson-내사이트</code>, <strong>Public</strong>, README <strong>끄기</strong>, Create repository</span></li>
+              </ul>
+              <p class="eyebrow" style="margin-top:14px">③ Vercel</p>
+              <ul class="plain-list">
+                <li><strong>vercel.com/new → Import</strong><span><code>lesson-내사이트</code>의 Import → 설정 그대로 (<strong>Application Preset: Other</strong>, Root: <code>./</code>) → Deploy</span></li>
+                <li><strong>약 30초 뒤</strong><span>임시 주소 <code>https://lesson-내사이트.vercel.app</code>이 열려요 ✅</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 37 -->
+      <section id="sub-lesson-3" class="page" data-title="B-2 · ④ 등록 ⑤ DNS">
+        <div class="page-inner">
+          <p class="eyebrow">PART B-2 · lesson.내도메인.kr · ④ ⑤</p>
+          <h2>Vercel에 등록(④) + 닷홈에 한 줄(⑤)</h2>
+          <div class="split">
+            <article class="card">
+              <p class="badge">④ Vercel에 내 주소 등록</p>
+              <ul class="plain-list">
+                <li><strong>1.</strong><span>프로젝트 <strong>Settings → Domains → Add Existing</strong></span></li>
+                <li><strong>2.</strong><span><code>lesson.내도메인.kr</code> 입력 → <strong>Add Domain</strong></span></li>
+                <li><strong>3.</strong><span>빨간 Invalid Configuration(정상!) → <strong>View DNS configuration</strong>에서 안내값 확인 (프로젝트마다 달라요)</span></li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="badge badge-green">⑤ 닷홈 DNS에 새로 추가할 줄</p>
+              <table class="info-table">
+                <tbody>
+                  <tr><td>레코드 네임</td><td><code>lesson</code></td></tr>
+                  <tr><td>TTL</td><td><code>3600</code></td></tr>
+                  <tr><td>TYPE</td><td><code>A</code></td></tr>
+                  <tr><td>Content</td><td><code>216.198.79.1</code></td></tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+          <div class="callout callout-soft">
+            <strong>📌 추가한 뒤 보통 이렇게 진행돼요</strong>
+            <p>DNS가 곧 <code>216.198.79.1</code>로 연결 → <code>https://</code>로 열면 "연결이 닫혔습니다"(SSL 발급 중, <code>Generating SSL Certificate</code>) → 1~3분 뒤 정상 접속 → <strong><code>https://lesson.내도메인.kr</code> 완성! 🎉</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 38 -->
+      <section id="routine" class="page" data-title="PART C · 고치고 다시 올리기">
+        <div class="page-inner">
+          <p class="eyebrow">PART C · EVERYDAY ROUTINE</p>
+          <h2>사이트를 고칠 때마다 같은 3줄</h2>
+          <div class="split practice">
+            <div class="notebook notebook-small">
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">폴더에서 터미널 열고</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-routine">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-routine"><span class="fn">git</span> add -A
+<span class="fn">git</span> commit -m <span class="str">"무엇을 고쳤는지"</span>
+<span class="fn">git</span> push origin main</code></pre>
+              </div>
+              <div class="output"><span class="out-label">결과</span>약 1분 뒤 사이트에 자동 반영 ✅</div>
+            </div>
+            <div>
+              <p class="eyebrow">반영됐는지 확인</p>
+              <ul class="plain-list">
+                <li><strong>Vercel → Deployments</strong><span>목록 맨 위가 <strong>Ready</strong>면 배포 완료</span></li>
+                <li><strong>브라우저에서 <kbd>Ctrl</kbd> + <kbd>F5</kbd></strong><span>옛날 화면을 기억하고 있을 수 있어요 (강력 새로고침)</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 39 -->
+      <section id="routine-claude" class="page" data-title="Claude에게 시키는 방법">
+        <div class="page-inner">
+          <p class="eyebrow">PART C · WITH CLAUDE</p>
+          <h2>Claude Code에게 시키는 추천 흐름</h2>
+          <ul class="say">
+            <li>OOO 수정해줘<small>나</small></li>
+            <li class="say-ai">수정 + 확인 후 "올릴까요?" 질문<small>Claude</small></li>
+            <li>응 / 배포해줘<small>나</small></li>
+            <li class="say-ai">commit → push → 사이트 반영 확인까지 보고<small>Claude</small></li>
+          </ul>
+          <div class="callout callout-soft">
+            <strong>📌 약속 만들기</strong>
+            <p>처음에 <strong>"앞으로 배포는 물어보고 해줘"</strong>라고 정해 두면, Claude는 항상 올리기 전에 묻습니다.</p>
+          </div>
+          <div class="role">
+            <div class="role-p"><strong>🧑 사람</strong>고칠 내용을 말하고 "응 / 배포해줘"로 승인 · 반영이 안 보이면 <kbd>Ctrl</kbd> + <kbd>F5</kbd></div>
+            <div class="role-c"><strong>🤖 Claude</strong>수정과 확인 · 올리기 전에 항상 묻기 · 승인되면 push 후 사이트에 반영됐는지 직접 확인</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 40 -->
+      <section id="trouble-1" class="page" data-title="막혔을 때 ① 주소·배포">
+        <div class="page-inner">
+          <p class="eyebrow">TROUBLESHOOTING 1 / 3 · 주소와 배포</p>
+          <h2>막혔을 때: 주소가 안 열려요</h2>
+          <table class="info-table">
+            <thead><tr><th>증상</th><th>원인</th><th>해결</th></tr></thead>
+            <tbody>
+              <tr><td>Vercel에 빨간 <strong>Invalid Configuration</strong></td><td>DNS를 아직 안 적었거나 반영 대기 중</td><td>닷홈에 레코드 추가 후 기다리기. <strong>Remove는 누르지 않기</strong></td></tr>
+              <tr><td>"연결이 닫혔습니다"</td><td>SSL 인증서 발급 중</td><td>1~3분 대기 후 재시도</td></tr>
+              <tr><td>새로고침하면 <strong>404</strong></td><td>메뉴별 주소를 서버가 모름</td><td>프로젝트에 <code>vercel.json</code>(rewrites) 추가</td></tr>
+              <tr><td>정적 사이트 배포가 깨짐</td><td>미리보기용 <code>server.js</code> 등을 서버로 오인</td><td><code>.vercelignore</code> / <code>vercel.json</code>으로 정적 사이트 지정</td></tr>
+              <tr><td>고쳤는데 화면이 그대로</td><td>브라우저 캐시 / 배포 대기</td><td><kbd>Ctrl</kbd> + <kbd>F5</kbd>, 1~2분 대기</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 41 -->
+      <section id="trouble-2" class="page" data-title="막혔을 때 ② 로그인">
+        <div class="page-inner">
+          <p class="eyebrow">TROUBLESHOOTING 2 / 3 · 로그인</p>
+          <h2>막혔을 때: 로그인이 안 돼요</h2>
+          <table class="info-table">
+            <thead><tr><th>증상</th><th>원인</th><th>해결</th></tr></thead>
+            <tbody>
+              <tr><td>사이트는 열리는데 <strong>로그인이 안 됨</strong></td><td>Vercel 환경변수(Firebase 값) 누락</td><td>Vercel → Settings → Environment Variables 확인 → <strong>Redeploy</strong></td></tr>
+              <tr><td>구글 로그인 창이 바로 닫힘 / <code>The requested action is invalid</code></td><td><strong>승인된 주소 미등록</strong></td><td><strong>STEP 6</strong>: Firebase 승인된 도메인 + Google Cloud 승인된 JavaScript 원본에 <strong>새 주소 추가, 저장 누르기</strong></td></tr>
+              <tr><td>STEP 6을 했는데 같은 오류</td><td>반영 지연 / 저장 안 누름 / 한 곳만 등록</td><td>몇 분 대기, <strong>두 곳 모두</strong> 했는지, <strong>저장</strong> 눌렀는지 확인</td></tr>
+              <tr><td>로그인 버튼은 뜨는데 로그인이 안 됨</td><td>Firebase에서 Google 로그인 방법이 "사용 설정" 안 됨</td><td>Authentication → Sign-in method → Google 사용 설정 + 지원 이메일</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 42 -->
+      <section id="trouble-3" class="page" data-title="막혔을 때 ③ 기타">
+        <div class="page-inner">
+          <p class="eyebrow">TROUBLESHOOTING 3 / 3 · 그 밖에</p>
+          <h2>막혔을 때: 그 밖의 경우</h2>
+          <table class="info-table">
+            <thead><tr><th>증상</th><th>원인</th><th>해결</th></tr></thead>
+            <tbody>
+              <tr><td>인증 앱에 6자리 숫자가 안 나옴</td><td>기본 카메라로 스캔함</td><td>인증 앱 안에서 <strong>+ → QR 스캔</strong></td></tr>
+              <tr><td>인증 앱에 Vercel이 두 개</td><td>QR을 두 번 스캔</td><td>최근 것 먼저 시도, 안 되면 다른 것</td></tr>
+              <tr><td>GitHub push 때 오류</td><td>저장소를 README와 함께 만들었음</td><td><strong>빈 저장소</strong>로 새로 만들기</td></tr>
+              <tr><td>AI(Gemini 등)가 링크를 못 연다고 함</td><td>새 주소를 AI가 아직 모르는 경우가 많음 (사이트가 막은 게 아님)</td><td><code>#...</code> 뺀 주소로 시도, GitHub 원본 주소로 시도, PPT·화면을 <strong>직접 첨부</strong></td></tr>
+              <tr><td>새 사이트가 검색에 안 나옴</td><td>검색엔진이 알아채는 데 시간이 걸림</td><td>서치어드바이저 등록, 시간 두고 기다리기</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 43 -->
+      <section id="safety" class="page" data-title="보안·비용·관리">
+        <div class="page-inner">
+          <p class="eyebrow">SECURITY · COST · HABITS</p>
+          <h2>보안 · 비용 · 관리 주의사항</h2>
+          <div class="card-grid card-grid-3">
+            <article class="card">
+              <p class="badge badge-red">🔒 보안</p>
+              <ul class="plain-list">
+                <li><strong>비밀번호·복구 코드·QR은 공유 금지</strong><span>화면 캡처에도 주의하세요.</span></li>
+                <li><strong>Firebase 설정값과 .env</strong><span>GitHub에 올리지 말고 캡처도 함부로 공유하지 마세요.</span></li>
+                <li><strong>Public 저장소는 코드가 모두 공개</strong><span>비밀번호·개인정보·키가 든 파일은 올리지 마세요.</span></li>
+                <li><strong>복구 코드는 꼭 저장</strong><span>휴대폰을 잃어버렸을 때 계정을 되찾는 유일한 방법이에요.</span></li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="badge">💰 비용·갱신</p>
+              <ul class="plain-list">
+                <li><strong>무료 범위로 운영 가능</strong><span>GitHub·Vercel(Hobby)·Firebase. 단, 한도와 약관은 바뀔 수 있어요.</span></li>
+                <li><strong>도메인은 매년 갱신 비용</strong><span>만료일을 달력에 적어 두세요. 만료되면 모든 서브사이트가 함께 멈춥니다.</span></li>
+                <li><strong>상업적 용도가 되면</strong><span>Vercel 약관(Hobby는 개인·비상업)을 다시 확인하세요.</span></li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="badge badge-green">🧭 관리 습관</p>
+              <ul class="plain-list">
+                <li><strong>새 주소마다 기록표에 한 줄</strong><span>부록의 기록표를 활용하세요.</span></li>
+                <li><strong>로그인이 있다면 STEP 6 두 곳 등록</strong><span>습관처럼!</span></li>
+                <li><strong>내 컴퓨터에서 먼저 확인 → 빌드 확인 → 올리기</strong><span><code>npm run dev</code> / <code>python -m http.server</code></span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 44 -->
+      <section id="checklist-a" class="page" data-title="체크리스트 A · 처음 만들 때">
+        <div class="page-inner">
+          <p class="eyebrow">CHECKLIST A</p>
+          <h2>처음 도메인 사이트를 만들 때 (🧑 사람 · 🤖 Claude)</h2>
+          <ul class="check-list check-2">
+            <li><strong>1.</strong> 🧑 계정 가입과 프로그램 설치 — GitHub, Vercel, Google, 닷홈, Git, Node.js, 인증 앱</li>
+            <li><strong>2.</strong> 🧑🤖 사이트 만들기 — 🧑 요청·확인 / 🤖 제작·점검</li>
+            <li><strong>3.</strong> (로그인 필요 시) 🧑 Firebase Google 로그인 사용 설정, 설정값 6개 / 🤖 안내·연결</li>
+            <li><strong>4.</strong> 🧑🤖 GitHub <strong>빈 저장소</strong> 만들고 push</li>
+            <li><strong>5.</strong> 🧑🤖 Vercel Import → Deploy → 임시 주소 확인</li>
+            <li><strong>6.</strong> 🧑 <strong>도메인 구매</strong> (이름·확장자, 본인 확인, 결제)</li>
+            <li><strong>7.</strong> 🤖 Vercel Domains → Add Existing에 도메인 등록 (🧑 허락)</li>
+            <li><strong>8.</strong> 🧑 닷홈 <strong>DNS 관리</strong>에서 레코드 추가 (A <code>216.198.79.1</code>)</li>
+            <li><strong>9.</strong> 🤖 DNS·HTTPS 확인 → <code>Valid Configuration</code>, 🧑 눈으로도 확인</li>
+            <li><strong>10.</strong> (로그인 있으면) 🧑 Firebase + Google Cloud에 새 주소 추가·저장</li>
+            <li><strong>11.</strong> 🤖 검색·공유 설정, 🧑 검색 등록, 🧑 도메인 만료일 기록</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 45 -->
+      <section id="checklist-b" class="page" data-title="체크리스트 B · 서브도메인">
+        <div class="page-inner">
+          <p class="eyebrow">CHECKLIST B</p>
+          <h2>서브도메인을 새로 만들 때 (예: <code>book.내도메인.kr</code>)</h2>
+          <ul class="check-list check-2">
+            <li><strong>1.</strong> 🧑🤖 사이트 파일을 만든다 (🧑 요청 / 🤖 제작)</li>
+            <li><strong>2.</strong> 🧑🤖 GitHub에 <strong>빈 저장소</strong>(<code>book-내사이트</code>)를 만든다</li>
+            <li><strong>3.</strong> 🤖 <code>git init → add → commit → remote add → push</code></li>
+            <li><strong>4.</strong> 🤖 Vercel <strong>Import → Deploy</strong> (🧑 로그인 상태 유지)</li>
+            <li><strong>5.</strong> 🤖 임시 주소(<code>xxx.vercel.app</code>)가 열리는지 확인</li>
+            <li><strong>6.</strong> 🤖 Vercel Domains → Add Existing에 <code>book.내도메인.kr</code> 등록</li>
+            <li><strong>7.</strong> 🧑 닷홈 DNS 레코드 추가: 이름 <code>book</code>, TYPE <code>A</code>, Content <code>216.198.79.1</code> (또는 Vercel이 안내한 CNAME)</li>
+            <li><strong>8.</strong> 🤖 몇 분 기다리며 반복 확인 → <code>Valid Configuration</code></li>
+            <li><strong>9.</strong> 🧑🤖 <code>https://book.내도메인.kr</code> 접속 확인</li>
+            <li><strong>10.</strong> 🧑🤖 이후 수정은 🧑 요청·"응" → 🤖 <code>add → commit → push</code></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 46 -->
+      <section id="record" class="page" data-title="부록 · 내 사이트 기록표">
+        <div class="page-inner">
+          <p class="eyebrow">APPENDIX 1</p>
+          <h2>내 사이트 기록표 (빈칸 채우기)</h2>
+          <table class="info-table">
+            <thead><tr><th>사이트</th><th>주소</th><th>GitHub 저장소</th><th>Vercel 프로젝트</th></tr></thead>
+            <tbody>
+              <tr><td>메인</td><td><code>https://내도메인.kr</code></td><td><code>내아이디/내사이트</code></td><td><code>내사이트</code></td></tr>
+              <tr><td>임시 주소</td><td><code>내프로젝트.vercel.app</code></td><td colspan="2">(위와 동일) 최초 배포 주소</td></tr>
+              <tr><td>서브사이트 1</td><td><code>https://docs.내도메인.kr</code></td><td><code>내아이디/docs-내사이트</code></td><td><code>docs-내사이트</code></td></tr>
+              <tr><td>서브사이트 2</td><td><code>https://lesson.내도메인.kr</code></td><td><code>내아이디/lesson-내사이트</code></td><td><code>lesson-내사이트</code></td></tr>
+            </tbody>
+          </table>
+          <div class="split" style="margin-top:14px">
+            <table class="info-table">
+              <thead><tr><th>닷홈 DNS 레코드</th><th>TYPE</th><th>Content</th></tr></thead>
+              <tbody>
+                <tr><td><code>lesson.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
+                <tr><td><code>docs.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
+                <tr><td><code>내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
+                <tr><td><code>www.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
+              </tbody>
+            </table>
+            <div class="callout" style="margin-top:0">
+              <strong>📝 메모</strong>
+              <p>도메인 <strong>만료일</strong>: ____년 __월 __일 (달력에 알림 설정). 새 사이트나 서브도메인을 만들 때마다 한 줄씩 적어 두세요. <strong>비밀번호·복구 코드는 여기에 적지 마세요.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 47 -->
+      <section id="glossary-1" class="page" data-title="부록 · 용어집 ① 주소와 연결">
+        <div class="page-inner">
+          <p class="eyebrow">APPENDIX 2 · GLOSSARY 1 / 2</p>
+          <h2>용어집 ① 주소와 연결</h2>
+          <ul class="term-grid">
+            <li><strong>도메인</strong>인터넷 주소의 이름 (<code>내도메인.kr</code>)</li>
+            <li><strong>서브도메인</strong>도메인 앞에 붙이는 "방 이름" (<code>lesson</code>.내도메인.kr)</li>
+            <li><strong>루트 도메인</strong>서브도메인이 없는 기본 주소</li>
+            <li><strong>DNS</strong>주소 이름을 컴퓨터 번호(IP)로 바꿔주는 인터넷 전화번호부</li>
+            <li><strong>DNS 레코드</strong>전화번호부의 한 줄 ("이 이름은 이 번호로 가세요")</li>
+            <li><strong>A 레코드</strong>이름 → IP 번호</li>
+            <li><strong>CNAME 레코드</strong>이름 → 다른 이름</li>
+            <li><strong>NS(네임서버)</strong>"이 도메인의 전화번호부는 어디에 있나?"를 알려주는 곳</li>
+            <li><strong>TTL</strong>DNS 정보를 기억해 두는 시간(초). 보통 건드리지 않음</li>
+            <li><strong>IP 주소</strong>인터넷 위의 번지수 (<code>216.198.79.1</code>)</li>
+            <li><strong>호스팅</strong>사이트 파일을 올려두고 24시간 공개해 주는 서비스 (Vercel)</li>
+            <li><strong>HTTPS / SSL</strong>주소 앞의 자물쇠. 안전한 연결</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 48 -->
+      <section id="glossary-2" class="page" data-title="부록 · 용어집 ② 만들기와 올리기">
+        <div class="page-inner">
+          <p class="eyebrow">APPENDIX 2 · GLOSSARY 2 / 2</p>
+          <h2>용어집 ② 만들기와 올리기</h2>
+          <ul class="term-grid">
+            <li><strong>배포(deploy)</strong>만든 사이트를 인터넷에 공개하는 것</li>
+            <li><strong>GitHub</strong>코드를 보관하고 버전을 기록하는 인터넷 창고</li>
+            <li><strong>저장소(repository)</strong>GitHub 안의 프로젝트 폴더 하나</li>
+            <li><strong>커밋(commit)</strong>"여기까지 저장!" 하고 기록 남기기</li>
+            <li><strong>푸시(push)</strong>내 컴퓨터의 기록을 GitHub로 보내기</li>
+            <li><strong>환경변수</strong>비밀 값(키 등)을 코드와 따로 넣어두는 설정</li>
+            <li><strong>Firebase</strong>로그인·저장 기능을 제공하는 구글 서비스</li>
+            <li><strong>OAuth 클라이언트</strong>구글 로그인을 쓰는 앱의 "신분증"</li>
+            <li><strong>2단계 인증</strong>비밀번호 + 휴대폰 인증 앱의 6자리 숫자로 로그인</li>
+            <li><strong>정적 사이트</strong>서버 프로그램 없이 HTML·CSS·JS 파일만으로 된 사이트</li>
+            <li><strong>로컬 미리보기</strong>내 컴퓨터 안에서만 보는 확인용 화면 (<code>localhost</code>)</li>
+            <li><strong>캐시</strong>브라우저가 옛 화면을 기억해 두는 것 → <kbd>Ctrl</kbd> + <kbd>F5</kbd>로 해결</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 49 -->
+      <section id="end" class="page" data-title="마무리">
+        <div class="page-inner">
+          <p class="eyebrow">ONE PAGE SUMMARY</p>
+          <h2>한 장 요약 — 이것만 기억하세요</h2>
+          <ul class="recap-grid">
+            <li><span class="recap-emoji" aria-hidden="true">🏠</span><strong>만들고 올리기</strong><span>Claude Code → GitHub → Vercel</span><em>임시 주소</em></li>
+            <li><span class="recap-emoji" aria-hidden="true">🏷️</span><strong>내 주소 연결</strong><span>도메인 구매 + 닷홈 DNS 한 줄</span><em>정식 주소</em></li>
+            <li><span class="recap-emoji" aria-hidden="true">🚪</span><strong>방 늘리기</strong><span>④ Vercel 등록 + ⑤ DNS 짝꿍</span><em>서브도메인</em></li>
+            <li><span class="recap-emoji" aria-hidden="true">🔁</span><strong>고치기</strong><span>add → commit → push</span><em>1분 뒤 반영</em></li>
+          </ul>
+          <div class="callout">
+            <strong>막혔을 땐</strong>
+            <p>화면을 캡처해서 Claude에게 보여주세요. 어디서 막혔는지 읽고 다음에 무엇을 누를지 안내해 줍니다. 서비스 화면과 버튼 이름은 바뀔 수 있으니 실제 화면의 안내를 우선하세요.</p>
+          </div>
+          <p class="links">
+            바로가기:
+            <a href="https://github.com" target="_blank" rel="noopener">GitHub ↗</a>
+            <span aria-hidden="true">|</span>
+            <a href="https://vercel.com" target="_blank" rel="noopener">Vercel ↗</a>
+            <span aria-hidden="true">|</span>
+            <a href="https://www.dothome.co.kr" target="_blank" rel="noopener">닷홈 ↗</a>
+            <span class="qa">Q&amp;A 및 자유 질문</span>
+          </p>
+        </div>
+      </section>

@@ -1,0 +1,306 @@
+      <!-- 10 -->
+      <section id="step0-github" class="page" data-title="STEP 0 · GitHub 가입">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 0-1</p>
+          <h2>GitHub 가입 (코드 보관함)</h2>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-num">1</span>
+              <h3>접속</h3>
+              <p>github.com 접속 → 오른쪽 위 <strong>Sign up</strong></p>
+            </li>
+            <li class="step">
+              <span class="step-num">2</span>
+              <h3>이메일 → 비밀번호 → 사용자 이름</h3>
+              <p>사용자 이름(Username)은 <code>github.com/사용자이름</code> 주소와 저장소 주소에 들어가요. <strong>영문 소문자로 신중히</strong> 정하세요.</p>
+            </li>
+            <li class="step">
+              <span class="step-num">3</span>
+              <h3>퍼즐 → Create account</h3>
+              <p>로봇이 아닌지 확인하는 퍼즐을 풀고 <strong>Create account</strong>. 이메일로 온 <strong>인증 코드</strong>를 입력합니다.</p>
+            </li>
+            <li class="step">
+              <span class="step-num">4</span>
+              <h3>설문은 Skip, 요금제는 Free</h3>
+              <p>설문 화면은 <strong>Skip</strong>해도 되고, 요금제는 <strong>Free(무료)</strong>를 선택합니다.</p>
+            </li>
+            <li class="step step-key">
+              <span class="step-num">5</span>
+              <span class="badge">권장</span>
+              <h3>2단계 인증 켜기</h3>
+              <p><strong>Settings → Password and authentication</strong>에서 2단계 인증을 켭니다.</p>
+            </li>
+          </ol>
+          <div class="role">
+            <div class="role-p"><strong>🧑 사람</strong>가입을 직접 합니다 (이메일·휴대폰 인증, 비밀번호). 비밀번호는 안전한 곳에 보관!</div>
+            <div class="role-c"><strong>🤖 Claude</strong>가입은 대신하지 않아요. 막힌 화면을 보여주면 다음 단계를 안내합니다.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 -->
+      <section id="step0-accounts" class="page" data-title="STEP 0 · 구글·닷홈 가입">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 0-2, 0-3</p>
+          <h2>구글(Firebase) · 닷홈 가입</h2>
+          <div class="split">
+            <article class="card">
+              <p class="badge">로그인 기능이 필요할 때만</p>
+              <h3>구글 계정과 Firebase</h3>
+              <ul class="plain-list">
+                <li><strong>1. 구글(Gmail) 계정</strong><span>없다면 accounts.google.com 에서 계정 만들기</span></li>
+                <li><strong>2. Firebase 로그인</strong><span>console.firebase.google.com 에 구글 계정으로 로그인 → 약관 동의</span></li>
+                <li><strong>3. 프로젝트는 STEP 2에서</strong><span>지금은 만들지 않아도 돼요</span></li>
+              </ul>
+              <p class="card-note">💡 로그인 기능이 없는 사이트(예: 교안 사이트)는 이 단계가 필요 없습니다.</p>
+            </article>
+            <article class="card">
+              <p class="badge badge-green">도메인 구매 전에</p>
+              <h3>닷홈 회원가입</h3>
+              <ul class="plain-list">
+                <li><strong>1. 회원가입</strong><span>dothome.co.kr 접속 → 회원가입</span></li>
+                <li><strong>2. 정보 입력</strong><span>약관 동의 → 개인/사업자 선택 → 아이디·비밀번호·이름·이메일·휴대폰</span></li>
+                <li><strong>3. 본인 인증 → 로그인</strong><span><strong>마이닷홈</strong> 메뉴가 보이면 성공! 이 가이드에서는 <strong>도메인 관리와 DNS 관리</strong>만 사용합니다.</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 -->
+      <section id="step0-install" class="page" data-title="STEP 0 · 프로그램 설치">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 0-4, 0-5</p>
+          <h2>내 컴퓨터에 프로그램 설치 + 인증 앱</h2>
+          <table class="info-table">
+            <thead><tr><th>프로그램</th><th>받는 곳 · 설치 팁</th><th>확인 명령</th></tr></thead>
+            <tbody>
+              <tr><td>Git</td><td>git-scm.com · 옵션은 <strong>기본값 그대로 Next</strong></td><td><code>git --version</code></td></tr>
+              <tr><td>Node.js (LTS)</td><td>nodejs.org · React 앱을 쓸 때만 필요</td><td><code>node --version</code></td></tr>
+              <tr><td>Python (선택)</td><td>python.org · 교안 같은 정적 사이트 미리 보기용</td><td><code>python --version</code></td></tr>
+              <tr><td>크롬</td><td>google.com/chrome · 미리 보기·확인용</td><td>—</td></tr>
+              <tr><td>Claude Code</td><td>Claude 안내 페이지 · 설치 후 로그인</td><td>—</td></tr>
+            </tbody>
+          </table>
+          <div class="split" style="margin-top:14px">
+            <div class="mini-terminal"><span class="gray">터미널(PowerShell)에 입력</span><span>&gt; git --version</span><span>git version 2.xx.x</span></div>
+            <div class="callout" style="margin-top:0">
+              <strong>📱 휴대폰에 인증 앱</strong>
+              <p><strong>Google Authenticator</strong>를 설치하세요. 은행·네이버·카카오 OTP 앱은 쓸 수 없어요.</p>
+            </div>
+          </div>
+          <p class="card-note">버전 숫자가 나오면 설치된 것입니다. 설치가 끝나면 Claude가 확인 명령을 대신 실행해 줄 수도 있어요.</p>
+        </div>
+      </section>
+
+      <!-- 13 -->
+      <section id="step1-build" class="page" data-title="STEP 1 · 사이트 만들기">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 1</p>
+          <h2>사이트 만들기 시작 — 말로 요청하면 돼요</h2>
+          <div class="split">
+            <div>
+              <p class="section-lead" style="margin-top:0">기술 이름을 몰라도 됩니다. Claude Code에게 하고 싶은 일을 말로 요청하세요. 작업 폴더 예: <code>C:\Dev\내사이트</code></p>
+              <ul class="say">
+                <li>소개 웹사이트를 만들어줘.<small>포트폴리오, 강의 자료, 블로그 등 만들고 싶은 것을 말해요</small></li>
+                <li>로그인 기능도 추가해줘.</li>
+                <li>로그인을 홈 화면 오른쪽 상단에 넣어줘.</li>
+                <li>Firebase 연동 방법을 <strong>아주 상세히</strong> 알려줘.<small>모르는 건 이렇게 물어보세요!</small></li>
+              </ul>
+            </div>
+            <div class="card">
+              <p class="eyebrow">ONE THING TO KNOW</p>
+              <h3>이 단계에서는 나만 볼 수 있어요</h3>
+              <p>인터넷에는 아무것도 공개되지 않습니다. 마음껏 고쳐 보세요.</p>
+              <p class="card-note">예시 사이트는 React + Vite로 만든 웹앱이지만, 초보라면 이 이름을 몰라도 됩니다.</p>
+            </div>
+          </div>
+          <div class="role">
+            <div class="role-p"><strong>🧑 사람</strong>어떤 사이트인지 말로 설명 · 미리 보기를 보고 고칠 곳 말하기 · 올릴지 최종 결정</div>
+            <div class="role-c"><strong>🤖 Claude</strong>폴더·코드 작성 · 미리 보기 확인 · 오류 점검 · 올리기 전에 반드시 물어봄</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 -->
+      <section id="step1-preview" class="page" data-title="STEP 1 · 미리 보기 명령">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 1</p>
+          <h2>내 컴퓨터에서 미리 보기</h2>
+          <p class="section-lead">터미널(PowerShell)에서 사이트 폴더로 이동한 뒤 입력하세요. 직접 치기 어려우면 [코드 복사] 버튼을 눌러 붙여넣어도 좋아요.</p>
+          <div class="split practice">
+            <div class="notebook notebook-small">
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">① 미리 보기 켜기</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-preview">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-preview"><span class="fn">npm</span> install
+<span class="fn">npm</span> run dev</code></pre>
+              </div>
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">② 공개 전 점검</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-build">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-build"><span class="fn">npm</span> run build</code></pre>
+              </div>
+            </div>
+            <div>
+              <p class="eyebrow">이 명령들은 무슨 뜻?</p>
+              <ul class="plain-list">
+                <li><strong>npm install — 부품 설치 (처음 한 번)</strong><span>그다음 <code>npm run dev</code>를 켜고 브라우저에 <code>http://localhost:5173</code>을 입력해요. 끄려면 <kbd>Ctrl</kbd> + <kbd>C</kbd>.</span></li>
+                <li><strong>npm run build — "내보내기용 파일" 만들기</strong><span>오류 없이 끝나면 OK. 공개하기 전 점검용입니다.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 15 -->
+      <section id="step2-firebase" class="page" data-title="STEP 2 · Firebase 로그인">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 2 · 로그인이 필요할 때만</p>
+          <h2>Firebase로 구글 로그인 연결</h2>
+          <ol class="steps steps-4">
+            <li class="step">
+              <span class="step-num">1</span>
+              <h3>프로젝트 추가</h3>
+              <p>console.firebase.google.com → <strong>프로젝트 추가</strong> (이름 자유: 예 <code>내프로젝트</code>)</p>
+            </li>
+            <li class="step">
+              <span class="step-num">2</span>
+              <h3>Authentication</h3>
+              <p>왼쪽 메뉴 <strong>빌드(Build) → Authentication → 시작하기</strong></p>
+            </li>
+            <li class="step step-key">
+              <span class="step-num">3</span>
+              <span class="badge">★ 자주 막혀요</span>
+              <h3>Google 사용 설정</h3>
+              <p><strong>Sign-in method → Google</strong> → <strong>사용 설정</strong> + <strong>지원 이메일 지정</strong> → 저장</p>
+            </li>
+            <li class="step">
+              <span class="step-num">4</span>
+              <h3>웹 앱 추가</h3>
+              <p><strong>프로젝트 설정 → 내 앱 → 웹 앱(<code>&lt;/&gt;</code>) 추가</strong> → 화면에 <strong>설정값 6개</strong>가 나옵니다.</p>
+            </li>
+          </ol>
+          <div class="callout callout-warn">
+            <strong>⚠️ 여기서 자주 막힙니다</strong>
+            <p>Google을 "사용 설정"하지 않으면 로그인 버튼이 눌려도 오류가 납니다. (코드 문제가 아니라 콘솔 설정 문제였어요.)</p>
+          </div>
+          <div class="role">
+            <div class="role-p"><strong>🧑 사람</strong>콘솔 로그인 · 프로젝트 만들기 · Google 사용 설정 · 설정값 전달</div>
+            <div class="role-c"><strong>🤖 Claude</strong>메뉴를 한 단계씩 안내 · 캡처 보고 잘못된 설정 짚기 · 앱 코드에 로그인 연결</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 -->
+      <section id="step2-env" class="page" data-title="STEP 2 · 설정값 6개와 .env">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 2</p>
+          <h2>설정값 6개를 앱에 넣기 (.env)</h2>
+          <div class="split practice">
+            <div class="notebook notebook-small">
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">프로젝트 폴더의 .env 파일</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-env">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-env">VITE_FIREBASE_API_KEY=여기에값
+VITE_FIREBASE_AUTH_DOMAIN=여기에값
+VITE_FIREBASE_PROJECT_ID=여기에값
+VITE_FIREBASE_STORAGE_BUCKET=여기에값
+VITE_FIREBASE_MESSAGING_SENDER_ID=여기에값
+VITE_FIREBASE_APP_ID=여기에값</code></pre>
+              </div>
+            </div>
+            <div>
+              <table class="info-table">
+                <thead><tr><th>이름</th><th>설명</th></tr></thead>
+                <tbody>
+                  <tr><td><code>apiKey</code></td><td>앱 열쇠</td></tr>
+                  <tr><td><code>authDomain</code></td><td>로그인 처리 주소</td></tr>
+                  <tr><td><code>projectId</code></td><td>프로젝트 번호</td></tr>
+                  <tr><td><code>storageBucket</code></td><td>파일 저장소</td></tr>
+                  <tr><td><code>messagingSenderId</code></td><td>메시지 번호</td></tr>
+                  <tr><td><code>appId</code></td><td>앱 번호</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="callout callout-warn">
+            <strong>🔒 설정값은 비밀처럼</strong>
+            <p><code>.env</code>는 GitHub에 올라가지 않도록 처리되어 있어요. 그래서 <strong>Vercel에도 같은 값을 따로 입력</strong>해야 합니다(STEP 5). 특히 <code>apiKey</code>를 캡처해 아무에게나 보내지 마세요. "Firebase 설정값 넣는 법 알려줘"라고 하면 Claude가 대신 넣어줘요.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 17 -->
+      <section id="step3-repo" class="page" data-title="STEP 3 · 빈 저장소 만들기">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 3-1</p>
+          <h2>GitHub에 빈 저장소 만들기</h2>
+          <p class="path-line">github.com 로그인 → 오른쪽 위 <strong>+ → New repository</strong></p>
+          <table class="info-table">
+            <thead><tr><th>칸</th><th>입력</th></tr></thead>
+            <tbody>
+              <tr><td>Repository name</td><td><code>내사이트</code> (영문 소문자 권장)</td></tr>
+              <tr><td>Public / Private</td><td>선택 (이 가이드는 Public 기준)</td></tr>
+              <tr><td>Add a README file</td><td><strong>끄기</strong></td></tr>
+              <tr><td>.gitignore / license</td><td><strong>No</strong> 그대로</td></tr>
+            </tbody>
+          </table>
+          <div class="callout callout-warn">
+            <strong>⚠️ 꼭 "빈" 저장소로</strong>
+            <p>README를 켜면 처음 올릴 때 충돌이 날 수 있어요. <strong>Create repository</strong>를 누르면 주소가 나옵니다 (예: <code>https://github.com/내아이디/내사이트.git</code>).</p>
+          </div>
+          <div class="role">
+            <div class="role-p"><strong>🧑 사람</strong>GitHub 로그인 → 방법 ① 직접 저장소 만들고 주소 알려주기 / 방법 ② "네가 만들어줘" 허락</div>
+            <div class="role-c"><strong>🤖 Claude</strong>로그인된 브라우저에서 저장소 생성 · 올라갔는지 확인 · <code>.gitignore</code> 점검</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 -->
+      <section id="step3-push" class="page" data-title="STEP 3 · 코드 올리기">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 3-2</p>
+          <h2>내 컴퓨터의 코드를 GitHub로 올리기</h2>
+          <p class="section-lead">프로젝트 폴더에서 터미널을 열고 <strong>순서대로</strong> 입력하세요. <code class="ph">내아이디</code>, <code class="ph">내사이트</code>는 내 값으로!</p>
+          <div class="split practice">
+            <div class="notebook notebook-small">
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">① 컴퓨터에서 처음 한 번만</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-gitcfg">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-gitcfg"><span class="fn">git</span> config --global user.name <span class="str">"내 이름 또는 GitHub 아이디"</span>
+<span class="fn">git</span> config --global user.email <span class="str">"내 이메일"</span></code></pre>
+              </div>
+              <div class="cell">
+                <div class="cell-head">
+                  <span class="cell-label">② 올리기</span>
+                  <button class="copy-btn" type="button" data-copy-target="code-gitpush">코드 복사</button>
+                </div>
+                <pre class="code"><code id="code-gitpush"><span class="fn">git</span> init -b main
+<span class="fn">git</span> add -A
+<span class="fn">git</span> commit -m <span class="str">"첫 번째 버전"</span>
+<span class="fn">git</span> remote add origin https://github.com/내아이디/내사이트.git
+<span class="fn">git</span> push -u origin main</code></pre>
+              </div>
+            </div>
+            <div>
+              <p class="eyebrow">각 줄은 무슨 뜻?</p>
+              <ul class="plain-list">
+                <li><strong>init → add → commit</strong><span>폴더를 "기록 관리 폴더"로 만들고, 모든 파일을 담아, "여기까지 저장!" 합니다.</span></li>
+                <li><strong>remote add → push</strong><span>GitHub 창고 주소를 <code>origin</code>으로 등록하고 GitHub로 보냅니다.</span></li>
+                <li><strong>처음 push 때</strong><span>GitHub 로그인 창이 뜨면 로그인하세요. 성공 후 저장소 페이지를 새로고침하면 파일이 보여요 ✅</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="card-note">💬 Claude에게 <strong>"이 주소로 깃허브 설정해줘"</strong>라고 저장소 주소를 알려주면 위 명령을 대신 실행합니다.</p>
+        </div>
+      </section>
+

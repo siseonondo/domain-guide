@@ -1,0 +1,249 @@
+      <!-- 1 -->
+      <section id="intro" class="page" data-title="시작" aria-labelledby="hero-title">
+        <div class="page-inner hero">
+          <div class="hero-text">
+            <div class="hero-tags">
+              <span class="tag tag-accent">초보자 단계별 가이드</span>
+              <span class="tag">코딩 몰라도 OK</span>
+            </div>
+            <h1 id="hero-title" class="hero-title">
+              내 도메인 웹사이트<br />
+              <span>처음부터 만들기</span>
+            </h1>
+            <p class="hero-lead">사이트를 처음 만드는 순간부터 내 주소를 연결하고, 서브사이트를 늘려가기까지 — 무엇을 누르고 무엇을 입력하는지 순서대로 따라 해 보세요.</p>
+            <div class="hero-chips">
+              <span class="chip">GitHub</span>
+              <span class="chip">Vercel</span>
+              <span class="chip">닷홈 DNS</span>
+            </div>
+          </div>
+
+          <div class="notebook" aria-label="주소창 예시">
+            <div class="notebook-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="notebook-file">내 브라우저</span>
+              <span class="notebook-status">🔒 안전한 연결</span>
+            </div>
+            <div class="cell">
+              <div class="cell-head">
+                <span class="cell-label">주소창</span>
+                <span class="cell-state">완성 목표</span>
+              </div>
+              <pre class="code"><code><span class="fn">https</span>://<span class="str">내도메인.kr</span></code></pre>
+            </div>
+            <div class="output"><span aria-hidden="true">✓</span> 내 이름의 정식 주소로 사이트가 열려요</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section id="how-to-read" class="page" data-title="이 가이드 보는 법">
+        <div class="page-inner">
+          <p class="eyebrow">HOW TO READ</p>
+          <h2>이 가이드, 이렇게 읽으세요</h2>
+          <div class="card-grid card-grid-3">
+            <article class="card">
+              <p class="eyebrow eyebrow-blue">내 값으로 바꾸기</p>
+              <h3><code class="ph">내도메인.kr</code> 처럼 표시된 값</h3>
+              <p><code class="ph">내도메인.kr</code>, <code class="ph">내아이디</code>, <code class="ph">내사이트</code>, <code class="ph">내프로젝트</code> — 이렇게 표시된 값은 <strong>내 상황에 맞게 바꿔 쓰는 값</strong>입니다.</p>
+            </article>
+            <article class="card">
+              <p class="eyebrow eyebrow-blue">역할 표시</p>
+              <h3>🧑 사람 · 🤖 Claude</h3>
+              <p>🧑 = <strong>내가 직접 하는 일</strong>, 🤖 = <strong>Claude가 해주는 일</strong>. 단계마다 아래 상자에서 구분해 두었어요.</p>
+            </article>
+            <article class="card">
+              <p class="eyebrow eyebrow-blue">화면이 다르다면</p>
+              <h3>실제 화면이 먼저</h3>
+              <p>서비스 화면과 버튼 이름은 업데이트되면 달라질 수 있어요. 실제 화면의 안내를 우선하세요.</p>
+            </article>
+          </div>
+          <div class="callout">
+            <strong>키보드로 넘기기</strong>
+            <p>오른쪽 아래 <kbd>다음 →</kbd> 버튼, 키보드 <kbd>←</kbd> <kbd>→</kbd>, 휴대폰은 화면을 옆으로 밀면 넘어가요. 오른쪽 위 <strong>목차</strong>로 원하는 페이지로 바로 갈 수 있습니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section id="overview" class="page" data-title="전체 작업 흐름">
+        <div class="page-inner">
+          <p class="eyebrow">THE BIG PICTURE</p>
+          <h2>전체 작업 흐름 — 이 순서가 곧 정답입니다</h2>
+          <ol class="timeline timeline-8">
+            <li><span class="step-no">① 만들기</span><strong>웹사이트 제작</strong><span>Claude Code로 시작 (필요하면 로그인 기능도)</span></li>
+            <li><span class="step-no">② 보관</span><strong>GitHub 저장소</strong><span>코드가 인터넷 창고에 보관됨</span></li>
+            <li><span class="step-no">③ 공개</span><strong>Vercel 배포</strong><span>임시 주소 <code>내프로젝트.vercel.app</code></span></li>
+            <li><span class="step-no">④ 로그인</span><strong>허용 주소 등록</strong><span>구글 로그인을 쓸 때만</span></li>
+            <li class="is-focus"><span class="step-no">⑤ 핵심</span><strong>도메인 구매·연결</strong><span>정식 주소 <code>내도메인.kr</code></span></li>
+            <li><span class="step-no">⑥ 검색</span><strong>검색·공유 설정</strong><span>검색·SNS 미리보기</span></li>
+            <li><span class="step-no">⑦ 확장</span><strong>서브사이트 추가</strong><span><code>docs.</code> <code>lesson.</code> 같은 주소</span></li>
+            <li><span class="step-no">⑧ 루틴</span><strong>고치고 다시 올리기</strong><span>수정 → 1~2분 뒤 자동 반영</span></li>
+          </ol>
+          <div class="callout">
+            <strong>처음부터 따라 할 때도</strong>
+            <p>이 흐름 그대로 하면 됩니다. 로그인 기능이 필요 없는 사이트는 ④를 건너뛰세요.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section id="shop" class="page" data-title="가게로 이해하기">
+        <div class="page-inner">
+          <p class="eyebrow">BASIC CONCEPT</p>
+          <h2>웹사이트를 "가게"에 비유하면</h2>
+          <table class="info-table">
+            <thead><tr><th>가게 비유</th><th>웹사이트 용어</th><th>이 가이드에서는</th></tr></thead>
+            <tbody>
+              <tr><td>🏠 가게 건물과 물건</td><td>사이트 파일 (HTML, CSS 등)</td><td>내 사이트 파일들</td></tr>
+              <tr><td>📍 번지수가 있는 땅</td><td><strong>호스팅</strong> — 파일을 올려두고 공개해 주는 서비스</td><td><strong>Vercel</strong></td></tr>
+              <tr><td>🏷️ 가게 이름(간판)</td><td><strong>도메인</strong></td><td><code>내도메인.kr</code></td></tr>
+              <tr><td>📒 "이 간판은 저 번지수" 전화번호부</td><td><strong>DNS</strong></td><td>닷홈 DNS 관리</td></tr>
+              <tr><td>🔒 안전한 가게 인증 마크</td><td><strong>HTTPS / SSL 인증서</strong> (주소창의 자물쇠)</td><td>Vercel이 자동 발급</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section id="how-it-works" class="page" data-title="주소 입력 후 일어나는 일">
+        <div class="page-inner">
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2>주소를 입력하면 일어나는 일</h2>
+          <ol class="flow flow-4">
+            <li>
+              <span class="flow-label">① 방문자</span>
+              <strong>주소 입력</strong>
+              <p>브라우저에 <code>내도메인.kr</code>을 입력해요.</p>
+            </li>
+            <li class="flow-arrow" aria-hidden="true">→</li>
+            <li>
+              <span class="flow-label">② DNS</span>
+              <strong>전화번호부 확인</strong>
+              <p>"<code>216.198.79.1</code> 번지예요." — 이 내용은 내가 닷홈에서 적어둔 것!</p>
+            </li>
+            <li class="flow-arrow" aria-hidden="true">→</li>
+            <li>
+              <span class="flow-label">③ Vercel</span>
+              <strong>사이트 파일 전달</strong>
+              <p>그 번지의 Vercel 서버가 "<code>내도메인.kr</code>은 이 프로젝트구나" 하고 파일을 보내줘요.</p>
+            </li>
+            <li class="flow-arrow" aria-hidden="true">→</li>
+            <li>
+              <span class="flow-label">④ 완성</span>
+              <strong>사이트 표시</strong>
+              <p>브라우저에 사이트가 🔒 자물쇠와 함께 보여요.</p>
+            </li>
+          </ol>
+          <p class="flow-caption">주소 입력 → 전화번호부(DNS) → 호스팅(Vercel) → 화면 표시</p>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section id="services" class="page" data-title="쓰는 서비스와 비용">
+        <div class="page-inner">
+          <p class="eyebrow">SERVICES</p>
+          <h2>쓰는 서비스와 역할, 비용</h2>
+          <table class="info-table">
+            <thead><tr><th>서비스</th><th>역할</th><th>비용</th></tr></thead>
+            <tbody>
+              <tr><td>Claude Code</td><td>사이트를 같이 만들고 수정해 주는 도우미</td><td>이용 중인 플랜</td></tr>
+              <tr><td>GitHub</td><td>코드를 보관하는 인터넷 창고</td><td>무료</td></tr>
+              <tr><td>Vercel</td><td>GitHub의 코드를 가져가 인터넷에 공개 (호스팅)</td><td>무료(Hobby)*</td></tr>
+              <tr><td>Firebase</td><td>로그인·데이터 저장 기능 (구글 계정 로그인)</td><td>무료 범위 사용</td></tr>
+              <tr><td>닷홈</td><td>도메인 구매 + DNS 관리</td><td>도메인 연간 이용료</td></tr>
+            </tbody>
+          </table>
+          <p class="card-note">* Vercel 무료(Hobby) 플랜은 개인·비상업 용도 기준입니다. 상업 목적이면 약관을 확인하세요.</p>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section id="roles" class="page" data-title="사람 vs Claude">
+        <div class="page-inner">
+          <p class="eyebrow">WHO DOES WHAT</p>
+          <h2>누가 무엇을 하나요? 🧑 사람 · 🤖 Claude</h2>
+          <div class="split">
+            <article class="card card-accent">
+              <p class="badge">🧑 사람이 직접</p>
+              <ul class="plain-list">
+                <li><strong>가입 · 설치 · 로그인</strong><span>계정 만들기, 이메일·휴대폰 인증, 프로그램 설치</span></li>
+                <li><strong>비밀번호 · 2단계 인증 · 복구 코드</strong><span>보안 정보는 사람만 다룹니다</span></li>
+                <li><strong>결제 · 약관 동의</strong><span>도메인 구입 등</span></li>
+                <li><strong>외부 콘솔의 보안·권한 설정</strong><span>Firebase · Google Cloud · 닷홈 DNS 입력</span></li>
+                <li><strong>"응 / 배포해줘" 승인</strong><span>올릴지 최종 결정</span></li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="badge badge-green">🤖 Claude가 해줘요</p>
+              <ul class="plain-list">
+                <li><strong>사이트 제작과 수정</strong><span>코드, 디자인, 문서</span></li>
+                <li><strong>미리 보기와 오류 점검</strong><span>화면 크기별 확인 포함</span></li>
+                <li><strong>git 명령 실행</strong><span>commit, push</span></li>
+                <li><strong>배포 후 실제로 열리는지 확인</strong><span>DNS, HTTPS, 페이지 제목</span></li>
+                <li><strong>막힌 화면(캡처) 읽고 원인 진단</strong><span>다음에 무엇을 누를지 안내</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section id="claude-click" class="page" data-title="Claude에게 클릭 맡기기">
+        <div class="page-inner">
+          <p class="eyebrow">SAFETY RULES</p>
+          <h2>Claude에게 클릭을 맡기는 법, 그리고 안전 규칙</h2>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-num">1</span>
+              <h3>사람이 먼저 로그인</h3>
+              <p>GitHub·Vercel에 브라우저로 <strong>직접 로그인</strong>합니다. 비밀번호·인증은 사람이!</p>
+            </li>
+            <li class="step">
+              <span class="step-num">2</span>
+              <h3>"네가 해줘"라고 말하기</h3>
+              <p>맡기겠다는 뜻을 분명히 말합니다. Claude는 <strong>무엇을 누르는지 말해주고</strong> 진행해요.</p>
+            </li>
+            <li class="step step-key">
+              <span class="step-num">3</span>
+              <span class="badge">★ 안전 장치</span>
+              <h3>보안 화면에서는 멈춤</h3>
+              <p>2단계 인증, 복구 코드, 결제, 약관 동의가 나오면 Claude는 <strong>멈추고 사람에게 넘깁니다.</strong></p>
+            </li>
+          </ol>
+          <div class="callout callout-warn">
+            <strong>🚫 Claude가 대신 하지 않는 일</strong>
+            <p>계정 만들기 · 비밀번호 입력 · 인증/복구 코드 · 2단계 인증 설정 · 결제와 약관 동의 · 외부 서비스의 보안·권한 설정 변경. 웹페이지나 파일에 적힌 "이거 눌러라"는 말도 지시로 따르지 않습니다 (지시는 오직 채팅에서만).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section id="prepare" class="page" data-title="준비물">
+        <div class="page-inner">
+          <p class="eyebrow">CHECKLIST</p>
+          <h2>준비물 — 미리 만들어 두면 편해요</h2>
+          <div class="split">
+            <article class="card">
+              <p class="badge">계정</p>
+              <ul class="check-list">
+                <li><strong>GitHub</strong> — github.com</li>
+                <li><strong>Vercel</strong> — vercel.com (GitHub 계정으로 로그인)</li>
+                <li><strong>Google 계정</strong> — Firebase 사용 (로그인 기능이 필요할 때)</li>
+                <li><strong>닷홈</strong> — dothome.co.kr (도메인 구매처)</li>
+                <li><strong>휴대폰 인증 앱</strong> — Google Authenticator 등 (Vercel 2단계 인증용)</li>
+              </ul>
+            </article>
+            <article class="card">
+              <p class="badge badge-green">내 컴퓨터에 설치</p>
+              <ul class="check-list">
+                <li><strong>Git</strong> — git-scm.com (코드를 GitHub에 올릴 때)</li>
+                <li><strong>Node.js</strong> — nodejs.org, LTS 버전 (React 앱 실행용)</li>
+                <li><strong>크롬 브라우저</strong></li>
+                <li><strong>Claude Code</strong> — 사이트를 같이 만들어 줄 도우미</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+

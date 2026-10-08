@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b2a8c" />
+    <title>내 도메인 웹사이트 처음부터 만들기 · 시선온도</title>
+    <meta
+      name="description"
+      content="계정 가입부터 GitHub·Vercel 배포, 도메인 연결, 서브사이트 추가까지. 코딩을 몰라도 따라 할 수 있는 도메인 웹사이트 만들기 단계별 가이드입니다."
+    />
+    <meta name="author" content="신다미" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://domain.siseonondo.kr/" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="시선온도" />
+    <meta property="og:title" content="내 도메인 웹사이트 처음부터 만들기 · 시선온도" />
+    <meta
+      property="og:description"
+      content="코딩을 몰라도 따라 하는 도메인 웹사이트 만들기: 가입 → 배포 → 도메인 연결 → 서브사이트까지."
+    />
+    <meta property="og:url" content="https://domain.siseonondo.kr/" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script>
+      document.documentElement.classList.add('js')
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "내 도메인 웹사이트 처음부터 만들기",
+        "description": "계정 가입부터 배포, 도메인 연결, 서브사이트 추가까지 초보자도 따라 할 수 있는 단계별 가이드",
+        "inLanguage": "ko-KR",
+        "url": "https://domain.siseonondo.kr/",
+        "author": { "@type": "Person", "name": "신다미", "url": "https://siseonondo.kr/about" },
+        "isPartOf": { "@type": "WebSite", "name": "시선온도", "url": "https://siseonondo.kr/" }
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+      <a class="brand" href="https://siseonondo.kr/">
+        <span class="brand-title">시선온도</span>
+        <span class="brand-sub">시선의 길을 열다</span>
+      </a>
+      <div class="header-right">
+        <span class="page-count" id="pageCount" aria-live="polite"></span>
+        <button class="toc-btn" id="tocBtn" type="button" aria-haspopup="dialog" aria-controls="toc">목차</button>
+      </div>
+    </header>
+
+    <div class="workspace">
+    <aside class="side" id="side" aria-label="가이드 메뉴">
+      <nav>
+        <ol class="side-list" id="sideList"></ol>
+      </nav>
+    </aside>
+    <div
+      class="side-resizer"
+      id="sideResizer"
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="왼쪽 메뉴 너비 조절 (좌우 방향키, 더블클릭하면 원래대로)"
+      title="끌어서 너비 조절 · 더블클릭하면 원래대로"
+      tabindex="0"
+    ></div>
+
+    <main id="main" class="stage">
