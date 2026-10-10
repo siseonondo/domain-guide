@@ -23,7 +23,8 @@
       content="코딩을 몰라도 따라 하는 도메인 웹사이트 만들기: 가입 → 배포 → 도메인 연결 → 서브사이트까지."
     />
     <meta property="og:url" content="https://domain.siseonondo.kr/" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://domain.siseonondo.kr/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,6 +62,7 @@
       </a>
       <div class="header-right">
         <span class="page-count" id="pageCount" aria-live="polite"></span>
+        <button class="toc-btn present-btn" id="presentBtn" type="button" title="발표 모드 (F)">발표</button>
         <button class="toc-btn" id="tocBtn" type="button" aria-haspopup="dialog" aria-controls="toc">목차</button>
       </div>
     </header>
@@ -332,10 +334,10 @@
       </section>
 
       <!-- 10 -->
-      <section id="step0-github" class="page" data-title="STEP 0 · GitHub 가입">
+      <section id="step0-github" class="page" data-title="STEP 0 · GitHub 가입 (1/2)">
         <div class="page-inner">
           <p class="eyebrow">PART A · STEP 0-1</p>
-          <h2>GitHub 가입 (코드 보관함)</h2>
+          <h2>GitHub 가입 (코드 보관함) (1/2)</h2>
           <ol class="steps">
             <li class="step">
               <span class="step-num">1</span>
@@ -352,6 +354,16 @@
               <h3>퍼즐 → Create account</h3>
               <p>로봇이 아닌지 확인하는 퍼즐을 풀고 <strong>Create account</strong>. 이메일로 온 <strong>인증 코드</strong>를 입력합니다.</p>
             </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 10-2 -->
+      <section id="step0-github-2" class="page" data-title="STEP 0 · GitHub 가입 (2/2)">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 0-1</p>
+          <h2>GitHub 가입 (코드 보관함) (2/2)</h2>
+          <ol class="steps steps-2">
             <li class="step">
               <span class="step-num">4</span>
               <h3>설문은 Skip, 요금제는 Free</h3>
@@ -416,7 +428,7 @@
             </tbody>
           </table>
           <div class="split" style="margin-top:14px">
-            <div class="mini-terminal"><span class="gray">터미널(PowerShell)에 입력</span><span>&gt; git --version</span><span>git version 2.xx.x</span></div>
+            <div class="mini-terminal"><span class="gray">터미널(PowerShell)에 입력</span><span>&gt; git --version</span><span class="gray">(버전 숫자가 나오면 설치된 거예요)</span></div>
             <div class="callout" style="margin-top:0">
               <strong>📱 휴대폰에 인증 앱</strong>
               <p><strong>Google Authenticator</strong>를 설치하세요. 은행·네이버·카카오 OTP 앱은 쓸 수 없어요.</p>
@@ -482,7 +494,7 @@
             <div>
               <p class="eyebrow">이 명령들은 무슨 뜻?</p>
               <ul class="plain-list">
-                <li><strong>npm install — 부품 설치 (처음 한 번)</strong><span>그다음 <code>npm run dev</code>를 켜고 브라우저에 <code>http://localhost:5173</code>을 입력해요. 끄려면 <kbd>Ctrl</kbd> + <kbd>C</kbd>.</span></li>
+                <li><strong>npm install — 부품 설치 (처음 한 번)</strong><span>그다음 <code>npm run dev</code>를 켜고 브라우저에 <code class="long">http://localhost:5173</code>을 입력해요. 끄려면 <kbd>Ctrl</kbd> + <kbd>C</kbd>.</span></li>
                 <li><strong>npm run build — "내보내기용 파일" 만들기</strong><span>오류 없이 끝나면 OK. 공개하기 전 점검용입니다.</span></li>
               </ul>
             </div>
@@ -587,7 +599,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
           </table>
           <div class="callout callout-warn">
             <strong>⚠️ 꼭 "빈" 저장소로</strong>
-            <p>README를 켜면 처음 올릴 때 충돌이 날 수 있어요. <strong>Create repository</strong>를 누르면 주소가 나옵니다 (예: <code>https://github.com/내아이디/내사이트.git</code>).</p>
+            <p>README를 켜면 처음 올릴 때 충돌이 날 수 있어요. <strong>Create repository</strong>를 누르면 주소가 나옵니다 (예: <code class="long">https://github.com/내아이디/내사이트.git</code>).</p>
           </div>
           <div class="role">
             <div class="role-p"><strong>🧑 사람</strong>GitHub 로그인 → 방법 ① 직접 저장소 만들고 주소 알려주기 / 방법 ② "네가 만들어줘" 허락</div>
@@ -638,10 +650,10 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
       </section>
 
       <!-- 19 -->
-      <section id="step4-vercel" class="page" data-title="STEP 4 · Vercel 가입·보안">
+      <section id="step4-vercel" class="page" data-title="STEP 4 · Vercel 가입·보안 (1/2)">
         <div class="page-inner">
           <p class="eyebrow">PART A · STEP 4</p>
-          <h2>Vercel 가입과 2단계 인증</h2>
+          <h2>Vercel 가입과 2단계 인증 (1/2)</h2>
           <ol class="steps">
             <li class="step">
               <span class="step-num">1</span>
@@ -659,6 +671,16 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
               <h3>앱 안에서 QR 스캔</h3>
               <p>앱 안에서 <strong>+ → QR 코드 스캔</strong>. 휴대폰 기본 <strong>카메라 앱으로 스캔하면 숫자가 안 나옵니다.</strong></p>
             </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 19-2 -->
+      <section id="step4-vercel-2" class="page" data-title="STEP 4 · Vercel 가입·보안 (2/2)">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 4</p>
+          <h2>Vercel 가입과 2단계 인증 (2/2)</h2>
+          <ol class="steps steps-2">
             <li class="step">
               <span class="step-num">4</span>
               <h3>6자리 숫자 입력</h3>
@@ -703,12 +725,12 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
             <li class="step">
               <span class="step-num">4</span>
               <h3>Deploy 🎉</h3>
-              <p>30초~1분 뒤 <strong>Congratulations!</strong> 임시 주소가 생겨요: <code>https://내프로젝트.vercel.app</code></p>
+              <p>30초~1분 뒤 <strong>Congratulations!</strong> 임시 주소가 생겨요: <code class="long">https://내프로젝트.vercel.app</code></p>
             </li>
           </ol>
           <div class="callout callout-warn">
             <strong>빼먹으면?</strong>
-            <p>사이트는 열리지만 <strong>로그인이 작동하지 않습니다.</strong> (로그인 기능이 없는 사이트라면 환경변수 단계는 건너뛰어도 돼요.)</p>
+            <p>사이트는 열리지만 <strong>로그인이 작동하지 않습니다.</strong></p>
           </div>
           <div class="role">
             <div class="role-p"><strong>🧑 사람</strong>Vercel에 로그인해 두기 · 대신 클릭을 맡기려면 "네가 해줘" · 비밀 값은 직접 입력 권장</div>
@@ -758,7 +780,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
               <h3>이런 오류가 나요</h3>
               <ul class="plain-list">
                 <li><strong>"Google로 계속하기"를 눌렀는데</strong><span>창이 바로 닫혀요.</span></li>
-                <li><strong>또는 이런 메시지가 보여요</strong><span><code>The requested action is invalid</code> · 연결이 끊김 · <code>auth/unauthorized-domain</code></span></li>
+                <li><strong>또는 이런 메시지가 보여요</strong><span><code class="long">The requested action is invalid</code> · 연결이 끊김 · <code class="long">auth/unauthorized-domain</code></span></li>
               </ul>
             </article>
             <article class="card card-accent">
@@ -792,14 +814,14 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
               <p class="badge badge-green">② Google Cloud 콘솔</p>
               <ul class="plain-list">
                 <li><strong>1.</strong><span>console.cloud.google.com/apis/credentials → 위쪽 프로젝트가 <strong>내 프로젝트</strong>인지 확인 → <strong>OAuth 2.0 클라이언트 ID</strong>의 <strong>"Web client (auto created by Google Service)"</strong> 클릭</span></li>
-                <li><strong>2.</strong><span><strong>승인된 JavaScript 원본 → + URI 추가</strong> → <code>https://내프로젝트.vercel.app</code> (<code>https://</code> 포함!)</span></li>
+                <li><strong>2.</strong><span><strong>승인된 JavaScript 원본 → + URI 추가</strong> → <code class="long">https://내프로젝트.vercel.app</code> (<code>https://</code> 포함!)</span></li>
                 <li><strong>3.</strong><span>맨 아래 <strong>저장</strong>을 꼭 누르기. 반영까지 몇 분 걸릴 수 있어요.</span></li>
               </ul>
             </article>
           </div>
           <div class="callout callout-warn">
             <strong>⚠️ 기존 값을 덮어쓰지 마세요!</strong>
-            <p>이미 있는 칸(<code>http://localhost</code>, <code>https://…firebaseapp.com</code> 등)은 그대로 두고 <strong>"+ URI 추가"로 새 칸</strong>을 만들어 입력하세요. 덮어쓰기 실수가 흔합니다.</p>
+            <p>이미 있는 칸(<code>http://localhost</code>, <code class="long">https://…firebaseapp.com</code> 등)은 그대로 두고 <strong>"+ URI 추가"로 새 칸</strong>을 만들어 입력하세요. 덮어쓰기 실수가 흔합니다.</p>
           </div>
         </div>
       </section>
@@ -813,7 +835,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
             <thead><tr><th>곳</th><th>등록된 주소</th></tr></thead>
             <tbody>
               <tr><td>Firebase 승인된 도메인</td><td><code>내프로젝트.vercel.app</code>, <code>내도메인.kr</code> 등</td></tr>
-              <tr><td>Google Cloud 승인된 JavaScript 원본</td><td><code>http://localhost</code>, <code>https://내프로젝트.firebaseapp.com</code>, <code>https://내프로젝트.vercel.app</code>, <code>https://내도메인.kr</code></td></tr>
+              <tr><td>Google Cloud 승인된 JavaScript 원본</td><td><code>http://localhost</code>, <code class="long">https://내프로젝트.firebaseapp.com</code>, <code class="long">https://내프로젝트.vercel.app</code>, <code>https://내도메인.kr</code></td></tr>
             </tbody>
           </table>
           <div class="callout callout-soft">
@@ -828,10 +850,10 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
       </section>
 
       <!-- 25 -->
-      <section id="step7-buy" class="page" data-title="STEP 7 · 도메인 구매">
+      <section id="step7-buy" class="page" data-title="STEP 7 · 도메인 구매 (1/2)">
         <div class="page-inner">
           <p class="eyebrow">PART A · STEP 7-1 · 이 가이드의 핵심</p>
-          <h2>도메인 이름 정하고 구매하기</h2>
+          <h2>도메인 이름 정하고 구매하기 (1/2)</h2>
           <ol class="steps">
             <li class="step">
               <span class="step-num">1</span>
@@ -848,6 +870,16 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
               <h3>검색하고 결제</h3>
               <p>닷홈에서 도메인 검색 → 비어 있는지 확인 → 장바구니 → <strong>결제</strong>. 개인 <code>.kr</code>은 <strong>본인 확인</strong>이 나올 수 있어요.</p>
             </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 25-2 -->
+      <section id="step7-buy-2" class="page" data-title="STEP 7 · 도메인 구매 (2/2)">
+        <div class="page-inner">
+          <p class="eyebrow">PART A · STEP 7-1 · 이 가이드의 핵심</p>
+          <h2>도메인 이름 정하고 구매하기 (2/2)</h2>
+          <ol class="steps">
             <li class="step">
               <span class="step-num">4</span>
               <h3>구매 확인</h3>
@@ -950,7 +982,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
             <article class="card">
               <p class="badge badge-green">CNAME 레코드</p>
               <h3>이름 → 다른 이름</h3>
-              <p>Vercel이 안내하는 정석 방식이에요. 예: <code>서브이름 → 어쩌고.vercel-dns-017.com.</code></p>
+              <p>Vercel이 안내하는 정석 방식이에요. 예: <code class="long">서브이름 → 어쩌고.vercel-dns-017.com.</code></p>
             </article>
           </div>
           <div class="callout callout-warn">
@@ -976,7 +1008,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
             <li><span class="flow-label">완성</span><strong>✅ Valid Configuration</strong><p><code>https://내도메인.kr</code> 접속!</p></li>
           </ol>
           <div class="split" style="margin-top:14px">
-            <div class="mini-terminal"><span class="gray">(선택) 터미널에서 확인</span><span>&gt; nslookup 내도메인.kr</span><span>Address: 216.198.79.1</span></div>
+            <div class="mini-terminal"><span class="gray">(선택) 터미널에서 확인</span><span>&gt; nslookup 내도메인.kr</span><span class="gray">(결과에 216.198.79.1이 나오면 성공)</span></div>
             <ul class="plain-list">
               <li><strong>몇 분~몇 시간 기다리세요 (보통 몇 분)</strong><span>"연결이 닫혔습니다 / 보안 연결 실패"는 자물쇠(SSL) 발급 중이에요. 1~3분 뒤 다시!</span></li>
               <li><strong>적용이 안 보이면 <kbd>Ctrl</kbd> + <kbd>F5</kbd></strong><span>1~2분 기다린 뒤 강력 새로고침을 먼저 해보세요.</span></li>
@@ -1181,7 +1213,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
               <p class="eyebrow" style="margin-top:14px">③ Vercel</p>
               <ul class="plain-list">
                 <li><strong>vercel.com/new → Import</strong><span><code>lesson-내사이트</code>의 Import → 설정 그대로 (<strong>Application Preset: Other</strong>, Root: <code>./</code>) → Deploy</span></li>
-                <li><strong>약 30초 뒤</strong><span>임시 주소 <code>https://lesson-내사이트.vercel.app</code>이 열려요 ✅</span></li>
+                <li><strong>약 30초 뒤</strong><span>임시 주소 <code class="long">https://lesson-내사이트.vercel.app</code>이 열려요 ✅</span></li>
               </ul>
             </div>
           </div>
@@ -1216,7 +1248,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
           </div>
           <div class="callout callout-soft">
             <strong>📌 추가한 뒤 보통 이렇게 진행돼요</strong>
-            <p>DNS가 곧 <code>216.198.79.1</code>로 연결 → <code>https://</code>로 열면 "연결이 닫혔습니다"(SSL 발급 중, <code>Generating SSL Certificate</code>) → 1~3분 뒤 정상 접속 → <strong><code>https://lesson.내도메인.kr</code> 완성! 🎉</strong></p>
+            <p>DNS가 곧 <code>216.198.79.1</code>로 연결 → <code>https://</code>로 열면 "연결이 닫혔습니다"(SSL 발급 중, <code class="long">Generating SSL Certificate</code>) → 1~3분 뒤 정상 접속 → <strong><code class="long">https://lesson.내도메인.kr</code> 완성! 🎉</strong></p>
           </div>
         </div>
       </section>
@@ -1282,8 +1314,8 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
             <tbody>
               <tr><td>Vercel에 빨간 <strong>Invalid Configuration</strong></td><td>DNS를 아직 안 적었거나 반영 대기 중</td><td>닷홈에 레코드 추가 후 기다리기. <strong>Remove는 누르지 않기</strong></td></tr>
               <tr><td>"연결이 닫혔습니다"</td><td>SSL 인증서 발급 중</td><td>1~3분 대기 후 재시도</td></tr>
-              <tr><td>새로고침하면 <strong>404</strong></td><td>메뉴별 주소를 서버가 모름</td><td>프로젝트에 <code>vercel.json</code>(rewrites) 추가</td></tr>
-              <tr><td>정적 사이트 배포가 깨짐</td><td>미리보기용 <code>server.js</code> 등을 서버로 오인</td><td><code>.vercelignore</code> / <code>vercel.json</code>으로 정적 사이트 지정</td></tr>
+              <tr><td>새로고침하면 <strong>404</strong></td><td>메뉴별 주소를 서버가 모름</td><td>프로젝트에 <code class="long">vercel.json</code>(rewrites) 추가</td></tr>
+              <tr><td>정적 사이트 배포가 깨짐</td><td>미리보기용 <code class="long">server.js</code> 등을 서버로 오인</td><td><code class="long">.vercelignore</code> / <code class="long">vercel.json</code>으로 정적 사이트 지정</td></tr>
               <tr><td>고쳤는데 화면이 그대로</td><td>브라우저 캐시 / 배포 대기</td><td><kbd>Ctrl</kbd> + <kbd>F5</kbd>, 1~2분 대기</td></tr>
             </tbody>
           </table>
@@ -1299,7 +1331,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
             <thead><tr><th>증상</th><th>원인</th><th>해결</th></tr></thead>
             <tbody>
               <tr><td>사이트는 열리는데 <strong>로그인이 안 됨</strong></td><td>Vercel 환경변수(Firebase 값) 누락</td><td>Vercel → Settings → Environment Variables 확인 → <strong>Redeploy</strong></td></tr>
-              <tr><td>구글 로그인 창이 바로 닫힘 / <code>The requested action is invalid</code></td><td><strong>승인된 주소 미등록</strong></td><td><strong>STEP 6</strong>: Firebase 승인된 도메인 + Google Cloud 승인된 JavaScript 원본에 <strong>새 주소 추가, 저장 누르기</strong></td></tr>
+              <tr><td>구글 로그인 창이 바로 닫힘 / <code class="long">The requested action is invalid</code></td><td><strong>승인된 주소 미등록</strong></td><td><strong>STEP 6</strong>: Firebase 승인된 도메인 + Google Cloud 승인된 JavaScript 원본에 <strong>새 주소 추가, 저장 누르기</strong></td></tr>
               <tr><td>STEP 6을 했는데 같은 오류</td><td>반영 지연 / 저장 안 누름 / 한 곳만 등록</td><td>몇 분 대기, <strong>두 곳 모두</strong> 했는지, <strong>저장</strong> 눌렀는지 확인</td></tr>
               <tr><td>로그인 버튼은 뜨는데 로그인이 안 됨</td><td>Firebase에서 Google 로그인 방법이 "사용 설정" 안 됨</td><td>Authentication → Sign-in method → Google 사용 설정 + 지원 이메일</td></tr>
             </tbody>
@@ -1353,7 +1385,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
               <ul class="plain-list">
                 <li><strong>새 주소마다 기록표에 한 줄</strong><span>부록의 기록표를 활용하세요.</span></li>
                 <li><strong>로그인이 있다면 STEP 6 두 곳 등록</strong><span>습관처럼!</span></li>
-                <li><strong>내 컴퓨터에서 먼저 확인 → 빌드 확인 → 올리기</strong><span><code>npm run dev</code> / <code>python -m http.server</code></span></li>
+                <li><strong>내 컴퓨터에서 먼저 확인 → 빌드 확인 → 올리기</strong><span><code>npm run dev</code> / <code class="long">python -m http.server</code></span></li>
               </ul>
             </article>
           </div>
@@ -1389,7 +1421,7 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
           <ul class="check-list check-2">
             <li><strong>1.</strong> 🧑🤖 사이트 파일을 만든다 (🧑 요청 / 🤖 제작)</li>
             <li><strong>2.</strong> 🧑🤖 GitHub에 <strong>빈 저장소</strong>(<code>book-내사이트</code>)를 만든다</li>
-            <li><strong>3.</strong> 🤖 <code>git init → add → commit → remote add → push</code></li>
+            <li><strong>3.</strong> 🤖 <code class="long">git init → add → commit → remote add → push</code></li>
             <li><strong>4.</strong> 🤖 Vercel <strong>Import → Deploy</strong> (🧑 로그인 상태 유지)</li>
             <li><strong>5.</strong> 🤖 임시 주소(<code>xxx.vercel.app</code>)가 열리는지 확인</li>
             <li><strong>6.</strong> 🤖 Vercel Domains → Add Existing에 <code>book.내도메인.kr</code> 등록</li>
@@ -1409,20 +1441,20 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
           <table class="info-table">
             <thead><tr><th>사이트</th><th>주소</th><th>GitHub 저장소</th><th>Vercel 프로젝트</th></tr></thead>
             <tbody>
-              <tr><td>메인</td><td><code>https://내도메인.kr</code></td><td><code>내아이디/내사이트</code></td><td><code>내사이트</code></td></tr>
-              <tr><td>임시 주소</td><td><code>내프로젝트.vercel.app</code></td><td colspan="2">(위와 동일) 최초 배포 주소</td></tr>
-              <tr><td>서브사이트 1</td><td><code>https://docs.내도메인.kr</code></td><td><code>내아이디/docs-내사이트</code></td><td><code>docs-내사이트</code></td></tr>
-              <tr><td>서브사이트 2</td><td><code>https://lesson.내도메인.kr</code></td><td><code>내아이디/lesson-내사이트</code></td><td><code>lesson-내사이트</code></td></tr>
+              <tr><td>메인</td><td><code class="long">https://내도메인.kr</code></td><td><code class="long">내아이디/내사이트</code></td><td><code class="long">내사이트</code></td></tr>
+              <tr><td>임시 주소</td><td><code class="long">내프로젝트.vercel.app</code></td><td colspan="2">(위와 동일) 최초 배포 주소</td></tr>
+              <tr><td>서브사이트 1</td><td><code class="long">https://docs.내도메인.kr</code></td><td><code class="long">내아이디/docs-내사이트</code></td><td><code class="long">docs-내사이트</code></td></tr>
+              <tr><td>서브사이트 2</td><td><code class="long">https://lesson.내도메인.kr</code></td><td><code class="long">내아이디/lesson-내사이트</code></td><td><code class="long">lesson-내사이트</code></td></tr>
             </tbody>
           </table>
           <div class="split" style="margin-top:14px">
             <table class="info-table">
               <thead><tr><th>닷홈 DNS 레코드</th><th>TYPE</th><th>Content</th></tr></thead>
               <tbody>
-                <tr><td><code>lesson.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
-                <tr><td><code>docs.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
-                <tr><td><code>내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
-                <tr><td><code>www.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
+                <tr><td><code class="long">lesson.내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
+                <tr><td><code class="long">docs.내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
+                <tr><td><code class="long">내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
+                <tr><td><code class="long">www.내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
               </tbody>
             </table>
             <div class="callout" style="margin-top:0">
@@ -1511,6 +1543,22 @@ VITE_FIREBASE_APP_ID=여기에값</code></pre>
       <div class="progress" role="presentation"><i id="progressBar"></i></div>
       <button class="pager-btn pager-next" id="nextBtn" type="button" aria-label="다음 페이지">다음 →</button>
     </nav>
+
+    <button class="scroll-hint" id="scrollHint" type="button" hidden>↓ 아래에 더 있어요</button>
+
+    <div class="present-ask" id="presentAsk" role="dialog" aria-modal="true" aria-labelledby="presentAskTitle" hidden>
+      <div class="present-ask-panel">
+        <h2 id="presentAskTitle">발표를 어디서 시작할까요?</h2>
+        <div class="present-ask-actions">
+          <button type="button" class="present-ask-btn present-ask-main" id="presentFromStart">처음부터 시작</button>
+          <button type="button" class="present-ask-btn" id="presentFromHere">현재 페이지부터</button>
+        </div>
+        <button type="button" class="present-ask-cancel" id="presentCancel">취소</button>
+      </div>
+    </div>
+
+    <button class="pres-nav pres-prev" id="presPrev" type="button" aria-label="이전 페이지" hidden>‹</button>
+    <button class="pres-nav pres-next" id="presNext" type="button" aria-label="다음 페이지" hidden>›</button>
 
     <div class="toc-overlay" id="toc" role="dialog" aria-modal="true" aria-label="목차" hidden>
       <div class="toc-panel">

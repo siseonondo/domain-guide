@@ -2599,19 +2599,46 @@ code {
   }
 }
 
-
 @media (max-width: 760px) {
   .info-table td,
-  .info-table th,
+  .info-table th {
+    overflow-wrap: break-word;
+  }
+
+  /* 짧은 명령어(git --version 등)는 중간에서 끊지 않고, 긴 주소만 줄바꿈 */
   .info-table code,
   .term-grid code,
   .check-list code {
-    overflow-wrap: anywhere;
+    white-space: nowrap;
+  }
+
+  .info-table code.long,
+  .term-grid code.long,
+  .check-list code.long {
+    white-space: normal;
     word-break: break-all;
   }
 
   .info-table .nw {
     white-space: normal;
+  }
+
+  /* 본문 속 짧은 코드도 중간에서 끊지 않음 */
+  .page-inner p code:not(.long),
+  .plain-list code:not(.long),
+  .step code:not(.long),
+  .card code:not(.long),
+  .callout code:not(.long),
+  .role code:not(.long),
+  .timeline code:not(.long),
+  .page-inner > h2 code:not(.long) {
+    white-space: nowrap;
+  }
+
+  /* 표가 화면보다 넓으면 표 안에서만 좌우로 스크롤 */
+  .info-table {
+    display: block;
+    overflow-x: auto;
   }
 }
 /* 본문 속 굵은 글씨는 줄바꿈하지 않고 이어서 */
@@ -2648,4 +2675,180 @@ code {
   background: #a99bbd;
   border: 2px solid transparent;
   background-clip: content-box;
+}
+/* 화면보다 긴 페이지: 아래에 더 있다는 안내 */
+.scroll-hint {
+  position: fixed;
+  right: 24px;
+  bottom: calc(var(--pager-h) + 14px);
+  z-index: 30;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(40, 30, 15, 0.28);
+  cursor: pointer;
+}
+
+.scroll-hint[hidden],
+.presenting .scroll-hint {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-hint {
+    animation: hint-bob 1.6s ease-in-out infinite;
+  }
+
+  @keyframes hint-bob {
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .scroll-hint {
+    right: 14px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+/* ================= 발표 모드 (코랩 사이트에서 가져옴) ================= */
+.js .page:focus {
+  outline: none;
+}
+
+/* 발표 모드: 머리글·왼쪽 메뉴를 숨기고 페이지를 크게 */
+.presenting .site-header,
+.presenting .side,
+.presenting .side-resizer {
+  display: none !important;
+}
+.presenting .pager {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.presenting .pager .pager-btn {
+  display: none;
+}
+.presenting .pager .progress {
+  flex: 1;
+  height: 4px;
+  margin: 0;
+}
+.present-btn {
+  margin-right: 8px;
+}
+.presenting .pager {
+  height: 6px;
+}
+.js .toc-btn.present-btn {
+  display: inline-block;
+}
+
+/* 발표 모드: 마우스로 넘기는 좌우 화살표 */
+.pres-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 84px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: rgba(60, 48, 30, 0.3);
+  font-size: 64px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.pres-nav[hidden] {
+  display: none !important;
+}
+.presenting .pres-nav:not([hidden]) {
+  display: flex;
+}
+.pres-prev {
+  left: 0;
+}
+.pres-next {
+  right: 0;
+}
+.pres-nav:hover:not(:disabled) {
+  background: rgba(91, 42, 140, 0.08);
+  color: var(--accent);
+}
+.pres-nav:disabled {
+  visibility: hidden;
+}
+
+/* 발표 시작 위치 묻기 */
+.present-ask {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 26, 23, 0.45);
+}
+.present-ask[hidden] {
+  display: none !important;
+}
+.present-ask-panel {
+  width: min(92vw, 420px);
+  padding: 28px 28px 20px;
+  border-radius: 18px;
+  background: #fffdf8;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+.present-ask-panel h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.present-ask-actions {
+  display: flex;
+  gap: 10px;
+}
+.present-ask-btn {
+  flex: 1;
+  padding: 14px 10px;
+  border: 1px solid var(--border-input);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.present-ask-btn:hover {
+  border-color: var(--accent);
+}
+.present-ask-main {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+.present-ask-main:hover {
+  background: var(--accent-strong);
+}
+.present-ask-cancel {
+  margin-top: 14px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13.5px;
+  cursor: pointer;
 }

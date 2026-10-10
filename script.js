@@ -52,12 +52,12 @@
   var tocBtn = document.getElementById('tocBtn')
   var tocClose = document.getElementById('tocClose')
   var tocList = document.getElementById('tocList')
-  var MIN_ZOOM = 1
-  var MIN_ZOOM_PHONE = 1
+  var MIN_ZOOM = 0.72
+  var MIN_ZOOM_PHONE = 0.82
   var MAX_ZOOM = 1.2
   var BASE_W = 1080
   var MIN_LOGICAL_W = 780
-  var ALIASES = { practice: 'practice-1', top: 'intro' }
+  var ALIASES = { top: 'intro' }
   var current = 0
 
   // 왼쪽 메뉴: 파워포인트처럼 모든 페이지의 작은 미리보기를 보여줍니다.
@@ -188,6 +188,10 @@
     barEl.style.width = ((i + 1) / pages.length) * 100 + '%'
     prevBtn.disabled = i === 0
     nextBtn.disabled = i === pages.length - 1
+    var pp = document.getElementById('presPrev')
+    var pn = document.getElementById('presNext')
+    if (pp) pp.disabled = i === 0
+    if (pn) pn.disabled = i === pages.length - 1
     tocLinks.forEach(function (a, k) {
       if (k === i) a.setAttribute('aria-current', 'true')
       else a.removeAttribute('aria-current')
@@ -244,6 +248,8 @@
       if (e.key === 'Escape') closeToc()
       return
     }
+    var askBox = document.getElementById('presentAsk')
+    if (askBox && !askBox.hidden) return
     if (e.target && e.target.id === 'sideResizer') return
     var tag = (e.target && e.target.tagName) || ''
     if (tag === 'INPUT' || tag === 'TEXTAREA') return
@@ -303,7 +309,7 @@
   // ---------- 왼쪽 메뉴 너비 조절 ----------
   var side = document.getElementById('side')
   var resizer = document.getElementById('sideResizer')
-  var STORE_KEY = 'colab_side_width'
+  var STORE_KEY = 'domain_side_width'
   var MIN_SIDE = 200
 
   function maxSide() {
@@ -378,6 +384,139 @@
         resetSide()
       }
     })
+  }
+
+  // ---------- 발표 모드: 전체 화면에서 페이지만 크게 ----------
+  var presentBtn = document.getElementById('presentBtn')
+  var presenting = false
+
+  function relayoutNow() {
+    fit(pages[current])
+    layoutThumbs()
+  }
+  function setPresent(on) {
+    presenting = on
+    document.documentElement.classList.toggle('presenting', on)
+    if (presPrev) presPrev.hidden = !on
+    if (presNext) presNext.hidden = !on
+    if (presentBtn) presentBtn.textContent = on ? '종료' : '발표'
+    setTimeout(relayoutNow, 60)
+    setTimeout(relayoutNow, 350)
+    setTimeout(function () {
+      if (typeof updateHint === 'function') updateHint()
+    }, 400)
+  }
+  function startPresent() {
+    setPresent(true)
+    var el = document.documentElement
+    try {
+      var req = el.requestFullscreen || el.webkitRequestFullscreen
+      if (req) {
+        var p = req.call(el)
+        if (p && p.catch) p.catch(function () {})
+      }
+    } catch (e) {}
+  }
+  function exitPresent() {
+    setPresent(false)
+    try {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        var ex = document.exitFullscreen || document.webkitExitFullscreen
+        if (ex) {
+          var p = ex.call(document)
+          if (p && p.catch) p.catch(function () {})
+        }
+      }
+    } catch (e) {}
+  }
+  var askEl = document.getElementById('presentAsk')
+  var askFromStart = document.getElementById('presentFromStart')
+  var askFromHere = document.getElementById('presentFromHere')
+  var askCancel = document.getElementById('presentCancel')
+  function openAsk() {
+    askEl.hidden = false
+    askFromHere.focus()
+  }
+  function closeAsk() {
+    askEl.hidden = true
+  }
+  function enterPresent() {
+    // 첫 페이지에서는 물어볼 필요 없이 바로 시작
+    if (current === 0 || !askEl) startPresent()
+    else openAsk()
+  }
+  function togglePresent() {
+    if (presenting) exitPresent()
+    else enterPresent()
+  }
+  if (askEl) {
+    askFromStart.addEventListener('click', function () {
+      closeAsk()
+      show(0, true)
+      startPresent()
+    })
+    askFromHere.addEventListener('click', function () {
+      closeAsk()
+      startPresent()
+    })
+    askCancel.addEventListener('click', closeAsk)
+    askEl.addEventListener('click', function (e) {
+      if (e.target === askEl) closeAsk()
+    })
+    askEl.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        e.stopPropagation()
+        closeAsk()
+      }
+    })
+  }
+  var presPrev = document.getElementById('presPrev')
+  var presNext = document.getElementById('presNext')
+  if (presPrev) presPrev.addEventListener('click', prev)
+  if (presNext) presNext.addEventListener('click', next)
+  if (presentBtn) presentBtn.addEventListener('click', togglePresent)
+  document.addEventListener('fullscreenchange', function () {
+    if (presenting && !document.fullscreenElement) setPresent(false)
+  })
+  document.addEventListener('keydown', function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return
+    var tag = (e.target && e.target.tagName) || ''
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return
+    if (askEl && !askEl.hidden) return
+    if (e.key === 'f' || e.key === 'F') {
+      e.preventDefault()
+      togglePresent()
+    } else if (e.key === 'Escape' && presenting && toc.hidden) {
+      exitPresent()
+    }
+  })
+
+  // ---------- "아래에 더 있어요" 안내: 화면보다 긴 페이지에서만 표시 ----------
+  var hintEl = document.getElementById('scrollHint')
+  function updateHint() {
+    if (!hintEl) return
+    var pg = pages[current]
+    var more = pg.scrollHeight - pg.scrollTop - pg.clientHeight > 12
+    hintEl.hidden = !more || presenting
+  }
+  if (hintEl) {
+    hintEl.addEventListener('click', function () {
+      var pg = pages[current]
+      pg.scrollBy({ top: Math.max(200, pg.clientHeight * 0.8), behavior: 'smooth' })
+    })
+    pages.forEach(function (p) {
+      p.addEventListener('scroll', updateHint, { passive: true })
+    })
+    var baseShow = show
+    show = function () {
+      baseShow.apply(this, arguments)
+      updateHint()
+      setTimeout(updateHint, 120)
+    }
+    window.addEventListener('resize', function () {
+      setTimeout(updateHint, 80)
+    })
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateHint)
   }
 
   show(fromHash(), false)

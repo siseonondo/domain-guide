@@ -168,7 +168,7 @@
               <p class="eyebrow" style="margin-top:14px">③ Vercel</p>
               <ul class="plain-list">
                 <li><strong>vercel.com/new → Import</strong><span><code>lesson-내사이트</code>의 Import → 설정 그대로 (<strong>Application Preset: Other</strong>, Root: <code>./</code>) → Deploy</span></li>
-                <li><strong>약 30초 뒤</strong><span>임시 주소 <code>https://lesson-내사이트.vercel.app</code>이 열려요 ✅</span></li>
+                <li><strong>약 30초 뒤</strong><span>임시 주소 <code class="long">https://lesson-내사이트.vercel.app</code>이 열려요 ✅</span></li>
               </ul>
             </div>
           </div>
@@ -203,7 +203,7 @@
           </div>
           <div class="callout callout-soft">
             <strong>📌 추가한 뒤 보통 이렇게 진행돼요</strong>
-            <p>DNS가 곧 <code>216.198.79.1</code>로 연결 → <code>https://</code>로 열면 "연결이 닫혔습니다"(SSL 발급 중, <code>Generating SSL Certificate</code>) → 1~3분 뒤 정상 접속 → <strong><code>https://lesson.내도메인.kr</code> 완성! 🎉</strong></p>
+            <p>DNS가 곧 <code>216.198.79.1</code>로 연결 → <code>https://</code>로 열면 "연결이 닫혔습니다"(SSL 발급 중, <code class="long">Generating SSL Certificate</code>) → 1~3분 뒤 정상 접속 → <strong><code class="long">https://lesson.내도메인.kr</code> 완성! 🎉</strong></p>
           </div>
         </div>
       </section>
@@ -269,8 +269,8 @@
             <tbody>
               <tr><td>Vercel에 빨간 <strong>Invalid Configuration</strong></td><td>DNS를 아직 안 적었거나 반영 대기 중</td><td>닷홈에 레코드 추가 후 기다리기. <strong>Remove는 누르지 않기</strong></td></tr>
               <tr><td>"연결이 닫혔습니다"</td><td>SSL 인증서 발급 중</td><td>1~3분 대기 후 재시도</td></tr>
-              <tr><td>새로고침하면 <strong>404</strong></td><td>메뉴별 주소를 서버가 모름</td><td>프로젝트에 <code>vercel.json</code>(rewrites) 추가</td></tr>
-              <tr><td>정적 사이트 배포가 깨짐</td><td>미리보기용 <code>server.js</code> 등을 서버로 오인</td><td><code>.vercelignore</code> / <code>vercel.json</code>으로 정적 사이트 지정</td></tr>
+              <tr><td>새로고침하면 <strong>404</strong></td><td>메뉴별 주소를 서버가 모름</td><td>프로젝트에 <code class="long">vercel.json</code>(rewrites) 추가</td></tr>
+              <tr><td>정적 사이트 배포가 깨짐</td><td>미리보기용 <code class="long">server.js</code> 등을 서버로 오인</td><td><code class="long">.vercelignore</code> / <code class="long">vercel.json</code>으로 정적 사이트 지정</td></tr>
               <tr><td>고쳤는데 화면이 그대로</td><td>브라우저 캐시 / 배포 대기</td><td><kbd>Ctrl</kbd> + <kbd>F5</kbd>, 1~2분 대기</td></tr>
             </tbody>
           </table>
@@ -286,7 +286,7 @@
             <thead><tr><th>증상</th><th>원인</th><th>해결</th></tr></thead>
             <tbody>
               <tr><td>사이트는 열리는데 <strong>로그인이 안 됨</strong></td><td>Vercel 환경변수(Firebase 값) 누락</td><td>Vercel → Settings → Environment Variables 확인 → <strong>Redeploy</strong></td></tr>
-              <tr><td>구글 로그인 창이 바로 닫힘 / <code>The requested action is invalid</code></td><td><strong>승인된 주소 미등록</strong></td><td><strong>STEP 6</strong>: Firebase 승인된 도메인 + Google Cloud 승인된 JavaScript 원본에 <strong>새 주소 추가, 저장 누르기</strong></td></tr>
+              <tr><td>구글 로그인 창이 바로 닫힘 / <code class="long">The requested action is invalid</code></td><td><strong>승인된 주소 미등록</strong></td><td><strong>STEP 6</strong>: Firebase 승인된 도메인 + Google Cloud 승인된 JavaScript 원본에 <strong>새 주소 추가, 저장 누르기</strong></td></tr>
               <tr><td>STEP 6을 했는데 같은 오류</td><td>반영 지연 / 저장 안 누름 / 한 곳만 등록</td><td>몇 분 대기, <strong>두 곳 모두</strong> 했는지, <strong>저장</strong> 눌렀는지 확인</td></tr>
               <tr><td>로그인 버튼은 뜨는데 로그인이 안 됨</td><td>Firebase에서 Google 로그인 방법이 "사용 설정" 안 됨</td><td>Authentication → Sign-in method → Google 사용 설정 + 지원 이메일</td></tr>
             </tbody>
@@ -340,7 +340,7 @@
               <ul class="plain-list">
                 <li><strong>새 주소마다 기록표에 한 줄</strong><span>부록의 기록표를 활용하세요.</span></li>
                 <li><strong>로그인이 있다면 STEP 6 두 곳 등록</strong><span>습관처럼!</span></li>
-                <li><strong>내 컴퓨터에서 먼저 확인 → 빌드 확인 → 올리기</strong><span><code>npm run dev</code> / <code>python -m http.server</code></span></li>
+                <li><strong>내 컴퓨터에서 먼저 확인 → 빌드 확인 → 올리기</strong><span><code>npm run dev</code> / <code class="long">python -m http.server</code></span></li>
               </ul>
             </article>
           </div>
@@ -376,7 +376,7 @@
           <ul class="check-list check-2">
             <li><strong>1.</strong> 🧑🤖 사이트 파일을 만든다 (🧑 요청 / 🤖 제작)</li>
             <li><strong>2.</strong> 🧑🤖 GitHub에 <strong>빈 저장소</strong>(<code>book-내사이트</code>)를 만든다</li>
-            <li><strong>3.</strong> 🤖 <code>git init → add → commit → remote add → push</code></li>
+            <li><strong>3.</strong> 🤖 <code class="long">git init → add → commit → remote add → push</code></li>
             <li><strong>4.</strong> 🤖 Vercel <strong>Import → Deploy</strong> (🧑 로그인 상태 유지)</li>
             <li><strong>5.</strong> 🤖 임시 주소(<code>xxx.vercel.app</code>)가 열리는지 확인</li>
             <li><strong>6.</strong> 🤖 Vercel Domains → Add Existing에 <code>book.내도메인.kr</code> 등록</li>
@@ -396,20 +396,20 @@
           <table class="info-table">
             <thead><tr><th>사이트</th><th>주소</th><th>GitHub 저장소</th><th>Vercel 프로젝트</th></tr></thead>
             <tbody>
-              <tr><td>메인</td><td><code>https://내도메인.kr</code></td><td><code>내아이디/내사이트</code></td><td><code>내사이트</code></td></tr>
-              <tr><td>임시 주소</td><td><code>내프로젝트.vercel.app</code></td><td colspan="2">(위와 동일) 최초 배포 주소</td></tr>
-              <tr><td>서브사이트 1</td><td><code>https://docs.내도메인.kr</code></td><td><code>내아이디/docs-내사이트</code></td><td><code>docs-내사이트</code></td></tr>
-              <tr><td>서브사이트 2</td><td><code>https://lesson.내도메인.kr</code></td><td><code>내아이디/lesson-내사이트</code></td><td><code>lesson-내사이트</code></td></tr>
+              <tr><td>메인</td><td><code class="long">https://내도메인.kr</code></td><td><code class="long">내아이디/내사이트</code></td><td><code class="long">내사이트</code></td></tr>
+              <tr><td>임시 주소</td><td><code class="long">내프로젝트.vercel.app</code></td><td colspan="2">(위와 동일) 최초 배포 주소</td></tr>
+              <tr><td>서브사이트 1</td><td><code class="long">https://docs.내도메인.kr</code></td><td><code class="long">내아이디/docs-내사이트</code></td><td><code class="long">docs-내사이트</code></td></tr>
+              <tr><td>서브사이트 2</td><td><code class="long">https://lesson.내도메인.kr</code></td><td><code class="long">내아이디/lesson-내사이트</code></td><td><code class="long">lesson-내사이트</code></td></tr>
             </tbody>
           </table>
           <div class="split" style="margin-top:14px">
             <table class="info-table">
               <thead><tr><th>닷홈 DNS 레코드</th><th>TYPE</th><th>Content</th></tr></thead>
               <tbody>
-                <tr><td><code>lesson.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
-                <tr><td><code>docs.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
-                <tr><td><code>내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
-                <tr><td><code>www.내도메인.kr</code></td><td>A</td><td><code>216.198.79.1</code></td></tr>
+                <tr><td><code class="long">lesson.내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
+                <tr><td><code class="long">docs.내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
+                <tr><td><code class="long">내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
+                <tr><td><code class="long">www.내도메인.kr</code></td><td>A</td><td><code class="long">216.198.79.1</code></td></tr>
               </tbody>
             </table>
             <div class="callout" style="margin-top:0">

@@ -356,16 +356,44 @@ code {
 
 @media (max-width: 760px) {
   .info-table td,
-  .info-table th,
+  .info-table th {
+    overflow-wrap: break-word;
+  }
+
+  /* 짧은 명령어(git --version 등)는 중간에서 끊지 않고, 긴 주소만 줄바꿈 */
   .info-table code,
   .term-grid code,
   .check-list code {
-    overflow-wrap: anywhere;
+    white-space: nowrap;
+  }
+
+  .info-table code.long,
+  .term-grid code.long,
+  .check-list code.long {
+    white-space: normal;
     word-break: break-all;
   }
 
   .info-table .nw {
     white-space: normal;
+  }
+
+  /* 본문 속 짧은 코드도 중간에서 끊지 않음 */
+  .page-inner p code:not(.long),
+  .plain-list code:not(.long),
+  .step code:not(.long),
+  .card code:not(.long),
+  .callout code:not(.long),
+  .role code:not(.long),
+  .timeline code:not(.long),
+  .page-inner > h2 code:not(.long) {
+    white-space: nowrap;
+  }
+
+  /* 표가 화면보다 넓으면 표 안에서만 좌우로 스크롤 */
+  .info-table {
+    display: block;
+    overflow-x: auto;
   }
 }
 /* 본문 속 굵은 글씨는 줄바꿈하지 않고 이어서 */
@@ -402,4 +430,46 @@ code {
   background: #a99bbd;
   border: 2px solid transparent;
   background-clip: content-box;
+}
+/* 화면보다 긴 페이지: 아래에 더 있다는 안내 */
+.scroll-hint {
+  position: fixed;
+  right: 24px;
+  bottom: calc(var(--pager-h) + 14px);
+  z-index: 30;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(40, 30, 15, 0.28);
+  cursor: pointer;
+}
+
+.scroll-hint[hidden],
+.presenting .scroll-hint {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-hint {
+    animation: hint-bob 1.6s ease-in-out infinite;
+  }
+
+  @keyframes hint-bob {
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .scroll-hint {
+    right: 14px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
 }
